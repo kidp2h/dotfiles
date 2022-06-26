@@ -1,0 +1,93 @@
+;; Global WM Settings
+[global/wm]
+margin-bottom = 0
+margin-top = 5
+
+include-file = ~/.config/bspwm/polybar/system
+include-file = ~/.config/bspwm/polybar/colors
+include-file = ~/.config/bspwm/polybar/modules
+
+[bar/main]
+monitor =
+monitor-strict = false
+override-redirect = false
+
+bottom = false
+fixed-center = true
+
+width = 99%
+height = 24
+offset-x = 7
+offset-y = 5
+
+background = ${color.BACKGROUND}
+foreground = ${color.FOREGROUND}
+
+radius-top = 0.0
+radius-bottom = 0.0
+
+line-size = 2
+line-color = ${color.BLUE}
+
+border-size = 4
+border-color = ${color.BACKGROUND}
+
+padding = 1
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = JetBrains Mono:style=Bold:size=9;3
+; icons
+font-1 = "Iosevka Nerd Font:size=14;4"
+; glyphs
+font-2 = "Iosevka Nerd Font:size=14;4"
+; dot
+font-3 = "Iosevka Nerd Font:size=10;4"
+; clock & mpd
+font-4 = "Iosevka:style=bold:size=10;4"
+; Archcraft
+font-5 = "archcraft:size=12;3"
+font-6 = "google\-mdi:size=11;3"
+modules-left =  logo round-left bspwm round-right r2li sep temperature sep mem
+modules-center = 
+modules-right =  volume sep backlight sep network sep r2li battery r2li sep date sep r2ls powermenu
+
+separator =
+spacing = 0
+
+dim-value = 1.0
+
+wm-name = bspwm
+locale = 
+
+tray-position = none 
+tray-align = center
+tray-detached = false
+tray-maxsize = 16
+tray-transparent = true 
+tray-background = ${color.BACKGROUND}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 0
+tray-scale = 1.0
+
+wm-restack = bspwm
+
+enable-ipc = true
+
+; bspwm
+scroll-up = bspc desktop -f prev.local
+scroll-down = bspc desktop -f next.local
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+
+screenchange-reload = false
+
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
