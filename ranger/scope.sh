@@ -1,30 +1,7 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
-
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
-
-# If the option `use_preview_script` is set to `true`,
-# then this script will be called and its output will be displayed in ranger.
-# ANSI color codes are supported.
-# STDIN is disabled, so interactive scripts won't work properly
-
-# This script is considered a configuration file and must be updated manually.
-# It will be left untouched if you upgrade ranger.
-
-# Meanings of exit codes:
-# code | meaning    | action of ranger
-# -----+------------+-------------------------------------------
-# 0    | success    | Display stdout as preview
-# 1    | no preview | Display no preview at all
-# 2    | plain text | Display the plain content of the file
-# 3    | fix width  | Don't reload when width changes
-# 4    | fix height | Don't reload when height changes
-# 5    | fix both   | Don't ever reload
-# 6    | image      | Display the image `$IMAGE_CACHE_PATH` points to as an image preview
-# 7    | image      | Display the file directly as an image
 
 # Script arguments
 FILE_PATH="${1}"         # Full path of the highlighted file
