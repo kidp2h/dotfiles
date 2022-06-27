@@ -44,6 +44,7 @@ bspc config paddingless_monocle true
 bspc config single_monocle false
 bspc config focus_follows_pointer true
 
+bspc config border_radius 5
 ## Window rules ----------------------------------------------#
 
 # remove all rules first
