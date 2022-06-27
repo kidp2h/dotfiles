@@ -59,19 +59,17 @@ type = custom/text
 
 content = " NA"
 content-prefix = 
-content-prefix-font = 2
+content-prefix-font = 1
 content-prefix-foreground = ${color.RED}
 content-padding = 0
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
 [module/backlight]
 type = internal/xbacklight
 
 card = intel_backlight
 
 format = <ramp> <label>
-
 label = %percentage%%
 
 ramp-0 = 
@@ -88,6 +86,13 @@ ramp-font = 2
 ramp-foreground = ${color.MAGENTA}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/IconBrightness]
+type = custom/text 
+content ="" 
+content-font = 1
+content-padding = 1
+click-left = ~/.config/bspwm/rofi/bin/menu_backlight
+content-foreground = ${color.MAGENTA}
 
 [module/brightness]
 type = internal/backlight
@@ -96,10 +101,11 @@ card = ${system.graphics_card}
 
 enable-scroll = true
 
-format = <ramp> <label>
+format =  <label>
 
 label = %percentage%%
 
+click-left = ~/.config/bspwm/rofi/bin/menu_backlight
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -112,7 +118,6 @@ ramp-8 = 
 ramp-9 = 
 ramp-font = 1
 ramp-foreground = ${color.MAGENTA}
-
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/battery]
@@ -310,6 +315,7 @@ ramp-signal-foreground = ${color.CYAN}
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/sep]
+
 type = custom/text
 content = ◆
 content-prefix-font = 1
@@ -324,7 +330,7 @@ content =""
 padding-right = 1
 content-font =1
 content-padding = 1
-click-left = ~/.config/bspwm/rofi/bin/powermenu 
+click-left = ~/.config/bspwm/rofi/bin/menu_powermenu
 content-foreground = #f25287
 content-background = #6c5ce7
 
@@ -391,6 +397,7 @@ type = custom/text
 content = " "
 content-foreground = #00cec9
 content-margin = 1
+click-left = ~/.config/bspwm/rofi/bin/android_apps
 
 [module/alsa]
 type = internal/alsa

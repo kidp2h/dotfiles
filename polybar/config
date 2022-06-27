@@ -50,7 +50,7 @@ font-5 = "archcraft:size=12;3"
 font-6 = "google\-mdi:size=11;3"
 modules-left =  logo round-left bspwm round-right r2li sep temperature sep mem
 modules-center = 
-modules-right =  volume sep backlight sep network sep r2li battery r2li sep date sep r2ls powermenu
+modules-right =  volume sep IconBrightness brightness sep network sep r2li battery r2li sep date sep r2ls powermenu
 
 separator =
 spacing = 0

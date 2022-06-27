@@ -64,7 +64,7 @@ for i in ${files[@]}; do
    bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # 4 > code
-declare -a code=(Geany code-oss)
+declare -a code=(Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code)
 for i in ${code[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
 
