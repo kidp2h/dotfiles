@@ -1,35 +1,51 @@
 local M = {}
 
-M.BufLine = {
+M.Barbar = {
   n = {
-    ["<leader>1"] = {"<cmd> BufferLineGoToBuffer 1 <CR>", "Go to buffer 1"},
-    ["<leader>2"] = {"<cmd> BufferLineGoToBuffer 2 <CR>", "Go to buffer 2"},
-    ["<leader>3"] = {"<cmd> BufferLineGoToBuffer 3 <CR>", "Go to buffer 3"},
-    ["<leader>4"] = {"<cmd> BufferLineGoToBuffer 4 <CR>", "Go to buffer 4"},
-    ["<leader>5"] = {"<cmd> BufferLineGoToBuffer 5 <CR>", "Go to buffer 5"},
-    ["<leader>6"] = {"<cmd> BufferLineGoToBuffer 6 <CR>", "Go to buffer 6"},
-    ["<leader>7"] = {"<cmd> BufferLineGoToBuffer 7 <CR>", "Go to buffer 7"},
-    ["<leader>8"] = {"<cmd> BufferLineGoToBuffer 8 <CR>", "Go to buffer 8"},
-    ["<leader>9"] = {"<cmd> BufferLineGoToBuffer 9 <CR>", "Go to buffer 9"},
-  }
+    ["<A-.>"] = { ":BufferNext<CR>", "Next Buffer" },
+    ["<A-,>"] = { ":BufferPrevious<CR>", "Previous Buffer" },
+
+    ["<A-1>"] = { ":BufferGoto 1<CR>", "Goto buffer 1" },
+    ["<A-2>"] = { ":BufferGoto 2<CR>", "Goto buffer 2" },
+    ["<A-3>"] = { ":BufferGoto 3<CR>", "Goto buffer 3" },
+    ["<A-4>"] = { ":BufferGoto 4<CR>", "Goto buffer 4" },
+    ["<A-5>"] = { ":BufferGoto 5<CR>", "Goto buffer 5" },
+    ["<A-6>"] = { ":BufferGoto 6<CR>", "Goto buffer 6" },
+    ["<A-7>"] = { ":BufferGoto 7<CR>", "Goto buffer 7" },
+    ["<A-8>"] = { ":BufferGoto 8<CR>", "Goto buffer 8" },
+    ["<A-9>"] = { ":BufferGoto 9<CR>", "Goto buffer 9" },
+    ["<leader>cc"] = { ":BufferCloseAllButCurrentOrPinned<CR>", "Close all but keep current or pinned" },
+    ["<A-0>"] = { ":BufferLast<CR>", "Goto last buffer" },
+  },
 }
+
 M.SaveFile = {
   i = {
-    ["<C-s>"] = {"<ESC>:w<cr>", "Save file in insert mode"}
-  }
+    ["<C-s>"] = { "<ESC>:w<cr>", "Save file in insert mode" },
+  },
+}
+M.Trouble = {
+  n = {
+    ["<A-m>"] = { ":TroubleToggle<cr>", "Open trouble window" },
+  },
+}
+M.Telescope = {
+  n = {
+    ["<leader>ft"] = { ":TodoTelescope<cr>", "   Open Todo Telescope" },
+  },
 }
 M.PreventArrow = {
   n = {
-    ["<up>"] = {"<nop>", "Don't use arrow"},
-    ["<down>"] = {"<nop>", "Don't use arrow"},
-    ["<right>"] = {"<nop>", "Don't use arrow"},
-    ["<left>"] = {"<nop>", "Don't use arrow"},
+    ["<up>"] = { "<nop>", "Don't use arrow" },
+    ["<down>"] = { "<nop>", "Don't use arrow" },
+    ["<right>"] = { "<nop>", "Don't use arrow" },
+    ["<left>"] = { "<nop>", "Don't use arrow" },
   },
   i = {
-    ["<up>"] = {"<nop>", "Don't use arrow"},
-    ["<down>"] = {"<nop>", "Don't use arrow"},
-    ["<right>"] = {"<nop>", "Don't use arrow"},
-    ["<left>"] = {"<nop>", "Don't use arrow"},
-  }
+    ["<up>"] = { "<nop>", "Don't use arrow" },
+    ["<down>"] = { "<nop>", "Don't use arrow" },
+    ["<right>"] = { "<nop>", "Don't use arrow" },
+    ["<left>"] = { "<nop>", "Don't use arrow" },
+  },
 }
 return M

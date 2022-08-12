@@ -8,14 +8,27 @@ local b = null_ls.builtins
 
 local sources = {
 
+  -- Spell
   b.completion.spell,
-  b.code_actions.eslint,
-  b.diagnostics.eslint,
-  b.diagnostics.codespell,
   -- webdev stuff
-  b.formatting.deno_fmt,
-  b.formatting.prettier.with { filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html", "json", "jsonc", "yaml", "markdown", "graphql" } },
-
+  b.formatting.prettier.with {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "css",
+      "scss",
+      "less",
+      "html",
+      "json",
+      "jsonc",
+      "yaml",
+      "markdown",
+      "graphql",
+    },
+  },
   -- Lua
   b.formatting.stylua,
 
@@ -30,4 +43,9 @@ local sources = {
 null_ls.setup {
   debug = true,
   sources = sources,
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+    end
+  end,
 }
