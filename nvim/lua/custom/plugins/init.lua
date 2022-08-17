@@ -87,4 +87,15 @@ return {
   ["romgrk/barbar.nvim"] = {},
   ["tpope/vim-fugitive"] = {},
   ["junegunn/gv.vim"] = {},
+  ["rcarriga/nvim-notify"] = {
+    config = function()
+      require "custom.plugins.notify"
+    end,
+  },
+  ["andweeb/presence.nvim"] = {},
+  ["phaazon/hop.nvim"] = {
+    config = function()
+      require("hop").setup {}
+    end,
+  },
 }
