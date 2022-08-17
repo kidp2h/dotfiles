@@ -23,7 +23,7 @@ getcolors
 workspaces() {
 	name=1
 	for monitor in $(bspc query -M); do
-		bspc monitor ${monitor} -n "$name" -d '' '' 'ﭮ' '' '' '' ''
+		bspc monitor ${monitor} -n "$name" -d '' '' 'ﭮ' '爵' '' '' ''
 		let name++
 	done
 }
@@ -55,8 +55,8 @@ bspc rule -a Alacritty desktop='^1' follow=on focus=on
 bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
 # 2 > Spotify
-declare -a files=(Spotify spotify spicetify)
-for i in ${files[@]}; do
+declare -a music=(Spotify spotify spicetify mpd)
+for i in ${music[@]}; do
 	bspc rule -a $i desktop='^2' follow=on focus=on
 done
 bspc rule -a Spotify desktop='^2' follow=on focus=on
@@ -68,8 +68,11 @@ for i in ${files[@]}; do
 	bspc rule -a $i desktop='^3' follow=on focus=on
 done
 
-# 4 > Chromium
-bspc rule -a Chromium desktop='^4' follow=on focus=on
+# 4 > Browser
+declare -a browsers=(Chromium Edge Microsoft-edge edge firefox Google-chrome)
+for i in ${browsers[@]}; do
+	bspc rule -a $i desktop='^4' follow=on focus=on
+done
 
 # 5 > files
 declare -a files=(Pcmanfm Thunar qBittorrent)
@@ -78,7 +81,7 @@ for i in ${files[@]}; do
 done
 
 # 6 > code
-declare -a code=(Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code)
+declare -a code=(Neovide neovide Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code)
 for i in ${code[@]}; do
 	bspc rule -a $i desktop='^6' follow=on focus=on
 done

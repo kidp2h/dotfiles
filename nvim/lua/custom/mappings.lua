@@ -21,9 +21,19 @@ M.Barbar = {
 
 M.SaveFile = {
   i = {
-    ["<C-s>"] = { "<ESC>:w<cr>", "Save file in insert mode" },
+    ["<C-s>"] = { "<ESC>:w | lua require'notify'('Saving file ....')<cr>", "Save file in insert mode" },
+  },
+  n = {
+    ["<C-s>"] = { "<ESC>:w | lua require'notify'('Saving file ....')<cr>", "Save file in normal mode" },
   },
 }
+
+M.NvimTree = {
+  n = {
+    ["<C-b>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+  },
+}
+
 M.Trouble = {
   n = {
     ["<A-m>"] = { ":TroubleToggle<cr>", "Open trouble window" },
@@ -36,16 +46,16 @@ M.Telescope = {
 }
 M.PreventArrow = {
   n = {
-    ["<up>"] = { "<nop>", "Don't use arrow" },
-    ["<down>"] = { "<nop>", "Don't use arrow" },
-    ["<right>"] = { "<nop>", "Don't use arrow" },
-    ["<left>"] = { "<nop>", "Don't use arrow" },
+    ["<up>"] = { ":lua require'notify'('Arrow is stupid', 'error')<cr>", "Don't use arrow" },
+    ["<down>"] = { ":lua require'notify'('Arrow is stupid', 'error')<cr>", "Don't use arrow" },
+    ["<right>"] = { ":lua require'notify'('Arrow is stupid', 'error')<cr>", "Don't use arrow" },
+    ["<left>"] = { ":lua require'notify'('Arrow is stupid', 'error')<cr>", "Don't use arrow" },
   },
   i = {
-    ["<up>"] = { "<nop>", "Don't use arrow" },
-    ["<down>"] = { "<nop>", "Don't use arrow" },
-    ["<right>"] = { "<nop>", "Don't use arrow" },
-    ["<left>"] = { "<nop>", "Don't use arrow" },
+    ["<up>"] = { "<ESC>:lua require'notify'('Arrow is stupid', 'error')<cr>a", "Don't use arrow" },
+    ["<down>"] = { "<ESC>:lua require'notify'('Arrow is stupid', 'error')<cr>a", "Don't use arrow" },
+    ["<right>"] = { "<ESC>:lua require'notify'('Arrow is stupid', 'error')<cr>a", "Don't use arrow" },
+    ["<left>"] = { "<ESC>:lua require'notify'('Arrow is stupid', 'error')<cr>a", "Don't use arrow" },
   },
 }
 return M

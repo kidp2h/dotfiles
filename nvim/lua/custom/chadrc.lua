@@ -15,7 +15,7 @@ M.plugins = {
 }
 
 M.ui = {
-  theme = "chadracula",
+  theme = "tokyonight",
   hl_add = require("custom.highlights").new_hlgroups,
   theme_toggle = { "chadracula" , "gruvchad" },
   statusline = {
