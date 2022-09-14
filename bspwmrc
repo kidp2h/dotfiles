@@ -29,7 +29,7 @@ workspaces() {
 }
 workspaces
 
-bspc config border_width 1
+bspc config border_width 0
 bspc config window_gap 10
 bspc config split_ratio 0.50
 
@@ -54,43 +54,42 @@ bspc rule -r *:*
 bspc rule -a Alacritty desktop='^1' follow=on focus=on
 bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
-# 2 > Spotify
-declare -a music=(Spotify spotify spicetify mpd)
-for i in ${music[@]}; do
+# 2 > code
+declare -a code=(Neovide nvim neovim nvide neovide Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code)
+for i in ${code[@]}; do
 	bspc rule -a $i desktop='^2' follow=on focus=on
 done
-bspc rule -a Spotify desktop='^2' follow=on focus=on
-bspc rule -a spotify desktop='^2' follow=on focus=on
 
-# 3 > Discord
-declare -a files=(Discord discord)
-for i in ${files[@]}; do
+# 3 > Browser
+declare -a browsers=(Chromium Edge Microsoft-edge edge firefox Google-chrome)
+for i in ${browsers[@]}; do
 	bspc rule -a $i desktop='^3' follow=on focus=on
 done
 
-# 4 > Browser
-declare -a browsers=(Chromium Edge Microsoft-edge edge firefox Google-chrome)
-for i in ${browsers[@]}; do
+# 4 > Communication
+declare -a comm=(Thunderbird TelegramDesktop Hexchat MongoDB\ Compass)
+for i in ${comm[@]}; do
 	bspc rule -a $i desktop='^4' follow=on focus=on
 done
 
-# 5 > files
-declare -a files=(Pcmanfm Thunar qBittorrent)
+# 5 > Discord
+declare -a files=(discord Discord)
 for i in ${files[@]}; do
 	bspc rule -a $i desktop='^5' follow=on focus=on
-done
-
-# 6 > code
-declare -a code=(Neovide neovide Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code)
-for i in ${code[@]}; do
+done 
+# 6 > files
+declare -a files=(Pcmanfm Thunar qBittorrent)
+for i in ${files[@]}; do
 	bspc rule -a $i desktop='^6' follow=on focus=on
 done
 
-# 7 > Communication
-declare -a comm=(Thunderbird TelegramDesktop Hexchat)
-for i in ${comm[@]}; do
+# 7 > Spotify
+declare -a music=(Spotify spotify spicetify mpd)
+for i in ${music[@]}; do
 	bspc rule -a $i desktop='^7' follow=on focus=on
 done
+bspc rule -a Spotify desktop='^7' follow=on focus=on
+bspc rule -a spotify desktop='^7' follow=on focus=on
 
 ## Autostart -------------------------------------------------#
 
@@ -129,4 +128,5 @@ bspcolors
 bspbar
 bspcomp
 bspdunst
+sh livewallpaper &
 bspfloat &

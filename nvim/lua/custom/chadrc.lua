@@ -9,17 +9,20 @@ M.plugins = {
     ["lukas-reineke/indent-blankline.nvim"] = override.blankline,
     ["goolord/alpha-nvim"] = override.alpha,
     ["williamboman/mason.nvim"] = override.mason,
+    ["nvim-telescope/telescope.nvim"] = override.telescope,
+    ["folke/which-key.nvim"] = override.whichkey,
+    ["NvChad/nvterm"] = override.nvterm,
   },
 
   user = require "custom.plugins",
 }
 
 M.ui = {
-  theme = "tokyonight",
+  theme = "chadracula",
   hl_add = require("custom.highlights").new_hlgroups,
-  theme_toggle = { "chadracula" , "gruvchad" },
+  theme_toggle = { "chadracula", "gruvchad" },
   statusline = {
-    separator_style = "round",
+    separator_style = "arrow",
   },
   transparency = true,
   hl_override = require("custom.highlights").overriden_hlgroups,

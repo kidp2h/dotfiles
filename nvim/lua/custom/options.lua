@@ -14,6 +14,12 @@ opt.fileencoding = "utf-8"
 opt.termguicolors = true
 opt.smartcase = true
 opt.guifont = { "CaskaydiaCove Nerd Font", ":h11" }
+opt.foldcolumn = "2"
+opt.foldlevel = 0 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.fillchars = [[eob: ,vert: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
 -- global
 global.airline_powerline_fonts = 1
 global.neovide_cursor_vfx_mode = "railgun"

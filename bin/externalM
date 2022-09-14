@@ -1,0 +1,2 @@
+id=$(xinput list --id-only "$TOUCHPAD")
+xinput disable $id

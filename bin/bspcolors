@@ -24,30 +24,6 @@ getcolors () {
 	ALTWHITE="$(xrdb -query | grep 'color15:'| awk '{print $NF}')"
 }
 
-bspbar () {
-	cat > $DIR/polybar/colors <<- EOF	
-	[color]
-
-	FOREGROUND = ${FOREGROUND}
-	BACKGROUND = ${BACKGROUND}
-	BLACK = ${BLACK}
-	RED = ${RED}
-	GREEN = ${GREEN}
-	YELLOW = ${YELLOW}
-	BLUE = ${BLUE}
-	MAGENTA = ${MAGENTA}
-	CYAN = ${CYAN}
-	WHITE = ${WHITE}
-	ALTBLACK = ${ALTBLACK}
-	ALTRED = ${ALTRED}
-	ALTGREEN = ${ALTGREEN}
-	ALTYELLOW = ${ALTYELLOW}
-	ALTBLUE = ${ALTBLUE}
-	ALTMAGENTA = ${ALTMAGENTA}
-	ALTCYAN = ${ALTCYAN}
-	ALTWHITE = ${ALTWHITE}
-	EOF
-}
 
 bspterm () {
 	cat > "$DIR"/alacritty/colors.yml <<- _EOF_
@@ -121,7 +97,6 @@ bspdunst () {
 
 main () {
 	getcolors
-	bspbar
 	bspterm
 	bsprofi
 	bspdunst

@@ -58,7 +58,7 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 
     -- new buffer
-    ["<S-b>"] = { "<cmd> enew <CR>", "new buffer" },
+    ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
 
     -- close buffer + hide terminal buffer
     ["<leader>x"] = {
@@ -113,7 +113,7 @@ M.comment = {
   n = {
     ["<leader>/"] = {
       function()
-        require("Comment.api").toggle_current_linewise()
+        require("Comment.api").toggle.linewise.current()
       end,
       "toggle comment",
     },
@@ -121,7 +121,7 @@ M.comment = {
 
   v = {
     ["<leader>/"] = {
-      "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "toggle comment",
     },
   },
@@ -383,7 +383,7 @@ M.blankline = {
   plugin = true,
 
   n = {
-    ["<leader>bc"] = {
+    ["<leader>cc"] = {
       function()
         local ok, start = require("indent_blankline.utils").get_current_context(
           vim.g.indent_blankline_context_patterns,

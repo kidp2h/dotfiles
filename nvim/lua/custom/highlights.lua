@@ -3,7 +3,64 @@ local M = {
   new_hlgroups = {
     -- Neorg
 
+    KeyMenuFloatBorder = {
+
+      fg = "#BD93F9",
+      bg = "none",
+      bold = true,
+    },
+    IndentBlanklineIndent1 = {
+      fg = "#E06C75",
+      bold = true,
+    },
+    IndentBlanklineIndent2 = {
+      fg = "#E5C07B",
+      bold = true,
+    },
+    IndentBlanklineIndent3 = {
+      fg = "#98C379",
+      bold = true,
+    },
+    IndentBlanklineIndent4 = {
+      fg = "#56B6C2",
+      bold = true,
+    },
+    IndentBlanklineIndent5 = {
+      fg = "#61AFEF",
+      bold = true,
+    },
+    IndentBlanklineIndent6 = {
+      fg = "#C678DD",
+      bold = true,
+    },
+    BufferTabpageFill = {
+      fg = "none",
+      bg = "none",
+    },
+    FoldColumn = {
+      bg = "none",
+    },
+    BufferInactive = {
+      fg = "none",
+      bg = "none",
+    },
+    BufferInactiveSign = {
+      fg = "none",
+      bg = "none",
+    },
+    StatusLine = {
+
+      fg = "none",
+      bg = "none",
+    },
+    CmpDocBorder = {
+
+      fg = "#5e5f69",
+      bg = "none",
+    },
     NeorgCodeBlock = { bg = "darkerblack" },
+
+    FloatBorder = { fg = "#BD93F9" },
 
     -- unordered lists
     NeorgUnorderedList1 = { fg = "grey" },
@@ -46,6 +103,25 @@ local M = {
   overriden_hlgroups = {
     AlphaHeader = {
       fg = "blue",
+    },
+    CmpDocBorder = {
+
+      fg = "#BD93F9",
+      bg = "none",
+    },
+
+    KeyMenuFloatBorder = {
+
+      fg = "#BD93F9",
+      bg = "none",
+    },
+    StatusLine = {
+      fg = "none",
+      bg = "none",
+    },
+    statusline = {
+      fg = "none",
+      bg = "none",
     },
   },
 }

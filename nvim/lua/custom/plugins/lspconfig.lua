@@ -10,3 +10,9 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+}

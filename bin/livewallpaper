@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+xwinwrap -g 1366x768+0+0 -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid %WID  --loop --no-audio $VIDEO

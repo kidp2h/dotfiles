@@ -57,6 +57,14 @@ M.blankline = function()
     show_first_indent_level = false,
     show_current_context = true,
     show_current_context_start = true,
+    char_highlight_list = {
+      "IndentBlanklineIndent1",
+      "IndentBlanklineIndent2",
+      "IndentBlanklineIndent3",
+      "IndentBlanklineIndent4",
+      "IndentBlanklineIndent5",
+      "IndentBlanklineIndent6",
+    },
   }
 
   options = load_override(options, "lukas-reineke/indent-blankline.nvim")
