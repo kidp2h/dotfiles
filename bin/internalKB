@@ -1,0 +1,2 @@
+id=$(xinput list --id-only "$KEYBOARD")
+xinput enable $id

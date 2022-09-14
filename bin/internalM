@@ -1,0 +1,3 @@
+id=$(xinput list --id-only "$TOUCHPAD")
+echo $TOUCHPAD
+xinput enable $id

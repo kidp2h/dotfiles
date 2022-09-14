@@ -1,9 +1,4 @@
-! ------------------------------------------------------------------------------
-! Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-! Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
-!
-! Fonts
-! ------------------------------------------------------------------------------
+
 
 URxvt.font: xft:CaskaydiaCove Nerd Font:regular:size=8
 URxvt.boldFont: xft:Terminus:bold:size=8

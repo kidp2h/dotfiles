@@ -11,7 +11,7 @@ M.options = {
     removed_sym = " ",
     moved_sym = "",
     open_fn = function()
-      return require("packer.util").float { border = "single" }
+      return require("packer.util").float { border = "rounded" }
     end,
   },
 }

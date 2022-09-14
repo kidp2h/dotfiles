@@ -10,7 +10,6 @@ M.lazy_load = function(tb)
     callback = function()
       if tb.condition() then
         vim.api.nvim_del_augroup_by_name(tb.augroup_name)
-        pcall(require, "impatient")
 
         -- dont defer for treesitter as it will show slow highlighting
         -- This deferring only happens only when we do "nvim filename"
@@ -80,7 +79,8 @@ M.mason_cmds = {
 M.gitsigns = function()
   autocmd({ "BufRead" }, {
     callback = function()
-      if vim.fn.isdirectory ".git" ~= 0 then
+      vim.fn.system("git rev-parse " .. vim.fn.expand "%:p:h")
+      if vim.v.shell_error == 0 then
         vim.schedule(function()
           require("packer").loader "gitsigns.nvim"
         end)
