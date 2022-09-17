@@ -61,7 +61,7 @@ for i in ${code[@]}; do
 done
 
 # 3 > Browser
-declare -a browsers=(Chromium Edge Microsoft-edge edge firefox Google-chrome)
+declare -a browsers=(Chromium Edge Microsoft-edge edge firefox Google-chrome Firefox firefox)
 for i in ${browsers[@]}; do
 	bspc rule -a $i desktop='^3' follow=on focus=on
 done
@@ -76,7 +76,7 @@ done
 declare -a files=(discord Discord)
 for i in ${files[@]}; do
 	bspc rule -a $i desktop='^5' follow=on focus=on
-done 
+done
 # 6 > files
 declare -a files=(Pcmanfm Thunar qBittorrent)
 for i in ${files[@]}; do
@@ -105,7 +105,7 @@ if [[ ! $(pidof xfce-polkit) ]]; then
 fi
 
 # Lauch keybindings daemon
-sxhkd &
+sxhkd -c ./sxhkd/sxhkdrc &
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &

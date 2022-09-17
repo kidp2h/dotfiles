@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-sh $HOME/.config/bspwm/rofi/launchers/misc/launcher.sh

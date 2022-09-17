@@ -16,7 +16,7 @@ super + t
 
 # Rofi App Launcher
 alt + F1
-	sh ~/.config/bspwm/rofi/bin/launcher
+  sh ~/.config/bspwm/rofi/launcher/launcher.sh
 
 # Rofi Network Menu
 super + n
@@ -27,8 +27,12 @@ ctrl + alt + t
 	sh ~/.config/bspwm/rofi/bin/themes
 
 # Rofi Menus/Applets
-super + {w,m,x,r,s}
-	sh ~/.config/bspwm/rofi/bin/{windows,menu_mpd,menu_powermenu,asroot,screenshot}
+super + {w,m,x,r}
+	sh ~/.config/bspwm/rofi/bin/{windows,menu_mpd,menu_powermenu,asroot}
+
+super + s
+	sh ~/.config/bspwm/rofi/screenshot/screenshot.sh
+
 
 ##---------- Applications ----------##
 
