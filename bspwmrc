@@ -105,7 +105,7 @@ if [[ ! $(pidof xfce-polkit) ]]; then
 fi
 
 # Lauch keybindings daemon
-sxhkd -c ./sxhkd/sxhkdrc &
+sxhkd -c $HOME/.config/bspwm/sxhkd/sxhkdrc &
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -128,5 +128,5 @@ bspcolors
 bspbar
 bspcomp
 bspdunst
-sh livewallpaper &
+livewallpaper &
 bspfloat &
