@@ -256,4 +256,15 @@ return {
 			})
 		end,
 	},
+	["glepnir/galaxyline.nvim"] = {
+		branch = "main",
+		config = function()
+			require("custom.statusline")
+		end,
+	},
+	["mrjones2014/legendary.nvim"] = {
+		config = {
+			require("custom.plugins.legendary"),
+		},
+	},
 }
