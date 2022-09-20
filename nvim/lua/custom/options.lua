@@ -19,6 +19,8 @@ opt.foldlevel = 0 -- Using ufo provider need a large value, feel free to decreas
 opt.foldlevelstart = 99
 opt.foldenable = true
 opt.fillchars = [[eob: ,vert: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+opt.cmdheight = 0
+opt.winbar = "\t%{%v:lua.require'nvim-navic'.get_location()%}"
 
 -- global
 global.airline_powerline_fonts = 1

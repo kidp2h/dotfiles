@@ -33,8 +33,10 @@ navic.setup {
     Operator = " ",
     TypeParameter = " ",
   },
-  highlight = false,
+  highlight = true,
   separator = " > ",
   depth_limit = 0,
   depth_limit_indicator = "..",
 }
+
+vim.opt.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
