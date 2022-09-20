@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 ## Environtment
 export PATH="${PATH}:$HOME/.config/bspwm/bin"
+
 ## Java Applications
 wmname LG3D
 export _JAVA_AWT_WM_NONREPARENTING=1

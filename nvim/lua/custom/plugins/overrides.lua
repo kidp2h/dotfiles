@@ -99,6 +99,9 @@ M.mason = {
     "graphql-language-service-cli",
     "tailwind-language-server",
     "eslint-lsp",
+    "yaml-language-server",
+    "yamllint",
+    "yamlfmt",
 
     -- shell
     "shfmt",

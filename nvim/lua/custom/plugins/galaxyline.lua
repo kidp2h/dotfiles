@@ -120,17 +120,6 @@ gls.left[11] = {
 }
 
 gls.mid[1] = {
-  nvimNavic = {
-    provider = function()
-      return navic.get_location()
-    end,
-    condition = function()
-      return navic.is_available()
-    end,
-  },
-}
-
-gls.right[1] = {
   ShowLspClient = {
     provider = "GetLspClient",
     condition = function()
@@ -144,7 +133,8 @@ gls.right[1] = {
     highlight = { colors.cyan, "NONE", "bold" },
   },
 }
-gls.right[2] = {
+
+gls.right[1] = {
   FileEncode = {
     provider = "FileEncode",
     condition = condition.hide_in_width,
@@ -154,7 +144,7 @@ gls.right[2] = {
   },
 }
 
-gls.right[3] = {
+gls.right[2] = {
   FileFormat = {
     provider = "FileFormat",
     condition = condition.hide_in_width,
@@ -164,7 +154,7 @@ gls.right[3] = {
   },
 }
 
-gls.right[4] = {
+gls.right[3] = {
   GitIcon = {
     provider = function()
       return "  "
@@ -176,7 +166,7 @@ gls.right[4] = {
   },
 }
 
-gls.right[5] = {
+gls.right[4] = {
   GitBranch = {
     provider = "GitBranch",
     condition = condition.check_git_workspace,
@@ -184,7 +174,7 @@ gls.right[5] = {
   },
 }
 
-gls.right[6] = {
+gls.right[5] = {
   DiffAdd = {
     provider = "DiffAdd",
     condition = condition.hide_in_width,
@@ -192,7 +182,7 @@ gls.right[6] = {
     highlight = { colors.green, "NONE" },
   },
 }
-gls.right[7] = {
+gls.right[6] = {
   DiffModified = {
     provider = "DiffModified",
     condition = condition.hide_in_width,
@@ -200,7 +190,7 @@ gls.right[7] = {
     highlight = { colors.orange, "NONE" },
   },
 }
-gls.right[8] = {
+gls.right[7] = {
   DiffRemove = {
     provider = "DiffRemove",
     condition = condition.hide_in_width,
@@ -209,7 +199,7 @@ gls.right[8] = {
   },
 }
 
-gls.right[9] = {
+gls.right[8] = {
   RainbowBlue = {
     provider = function()
       return "  "

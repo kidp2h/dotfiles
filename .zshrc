@@ -146,17 +146,18 @@ alias b8u='cd ~/Documents/box-universe/; neovide --frame transparent'
 alias prodb8u='cd ~/Documents/box-universe/docker/; sh production.sh'
 alias devb8u='cd ~/Documents/box-universe/docker/; sh development.sh'
 alias _b8u='cd ~/Documents/box-universe'
-alias nvimrc='cd ~/.config/bspwm/nvim/; nvim'
-alias dotfiles='cd ~/.config/bspwm/; nvim'
+alias nvimrc='cd ~/.config/bspwm/nvim/; neovide'
+alias dotfiles='cd ~/.config/bspwm/; neovide'
 alias zshrc='neovide ~/.zshrc'
 alias warpConnect='warp-cli connect'
 alias warpDisconnect='warp-cli connect'
 alias lofi='sh $HOME/.config/bspwm/bin/lofi; exit'
-alias externalkb='sh $HOME/.config/bspwm/bin/externalkb'
-alias internalkb='sh $HOME/.config/bspwm/bin/internalkb'
+alias stopLofi="ps -ef | grep 'mpv --loop' | grep -v grep | awk '{print $2}' | xargs kill"
+alias externalkb='sh $HOME/.config/bspwm/bin/externalKB'
+alias internalkb='sh $HOME/.config/bspwm/bin/internalKB'
 alias externalM='sh $HOME/.config/bspwm/bin/externalM'
 alias internalM='sh $HOME/.config/bspwm/bin/internalM'
-
+alias alacritty='alacritty --config-file ~/.config/bspwm/alacritty/alacritty.yml'
 # export GTK_IM_MODULE=ibus
 # export XMODIFIERS=@im=ibus
 # export QT_IM_MODULE=ibus
@@ -172,11 +173,13 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:/home/kidp2h/.spicetify
 export KEYBOARD="AT Translated Set 2 keyboard"
 export TOUCHPAD="ELAN0712:00 04F3:30FD Touchpad"
-export VIDEO=$HOME/Videos/wp/1.mp4
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
+export PATH=$PATH:$HOME/go/bin
+
+export VIDEO=$HOME/Videos/wp/1.mp4
 source /usr/share/zsh/scripts/zplug/init.zsh
 eval $(thefuck --alias)
 export ENHANCD_FILTER=peco

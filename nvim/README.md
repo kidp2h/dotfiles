@@ -24,3 +24,5 @@ rm -rf ~/.config/nvim ~/.local/share/nvim ~/.cache/nvim && git clone https://git
 ```
 :PackerSync
 ```
+
+4. Enjoy
