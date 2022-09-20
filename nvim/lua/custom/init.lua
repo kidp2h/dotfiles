@@ -1,10 +1,6 @@
-require("custom.options")
--- require("custom.plugins.timer")
+-- Dynamic terminal padding with/without nvim (for siduck's st only)
 
-vim.cmd("silent! command! Far lua require'custom.plugins.far'.findInput()")
-vim.cmd("silent! command! SearchIssue lua require'custom.plugins.research'.MenuBrowser()")
+-- replace string from file
 
-local new_cmd = vim.api.nvim_create_user_command
-new_cmd("EnableAutosave", function()
-	require("autosave").setup()
-end, {})
+require "custom.commands"
+require "custom.options"

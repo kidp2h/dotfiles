@@ -22,9 +22,9 @@ opt.fillchars = [[eob: ,vert: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- global
 global.airline_powerline_fonts = 1
-global.neovide_cursor_vfx_mode = "railgun"
-global.neovide_cursor_antialiasing = "v:true"
+global.neovide_cursor_antialiasing = true
 global.neovide_transparency = 0.5
-global.neovide_no_idle = "v:true"
+global.neovide_no_idle = true
 global.neovide_cursor_animation_length = 0.13
 global.neovide_cursor_vfx_particle_density = 10.0
+global.neovide_hide_mouse_when_typing = true

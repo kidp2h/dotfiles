@@ -2,7 +2,8 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "emmet_ls", "clangd", "jsonls", "tsserver", "tailwindcss", "graphql", "eslint" }
+local servers = { "cssls", "emmet_ls", "clangd", "tailwindcss" }
+local navicServers = { "tsserver", "sumneko_lua", "html", "jsonls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -10,9 +11,13 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-vim.diagnostic.config {
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-}
+
+for _, lsp in ipairs(navicServers) do
+  lspconfig[lsp].setup {
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      require("nvim-navic").attach(client, bufnr)
+    end,
+    capabilities = capabilities,
+  }
+end

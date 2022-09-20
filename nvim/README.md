@@ -1,6 +1,12 @@
 # Install
 
-1. Run this script (Press enter if error):
+1. Install dependencies
+
+```sh
+npm install -g prettier eslint tree-sitter neovim
+```
+
+3. Install nvim (Press enter if error):
 
 ```sh
 rm -rf ~/.config/nvim ~/.local/share/nvim ~/.cache/nvim && git clone https://github.com/kidp2h/lazynvim.git ~/.config/nvim --depth 1 && nvim
