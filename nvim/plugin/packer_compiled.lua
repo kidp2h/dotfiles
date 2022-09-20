@@ -127,7 +127,7 @@ _G.packer_plugins = {
   },
   base46 = {
     after = { "alpha-nvim", "ui" },
-    config = { "\27LJ\2\nK\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\15load_theme\vbase46\frequire\npcall\0" },
+    config = { "\27LJ\2\nK\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2ï¿½9\2\3\1B\2\1\1K\0\1\0\15load_theme\vbase46\frequire\npcall\0" },
     loaded = true,
     only_config = true,
     path = "/home/kidp2h/.local/share/nvim/site/pack/packer/start/base46",
@@ -269,7 +269,7 @@ _G.packer_plugins = {
     url = "https://github.com/linty-org/key-menu.nvim"
   },
   ["lsp-inlayhints.nvim"] = {
-    config = { "\27LJ\2\n•\3\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\16inlay_hints\1\0\2\15debug_mode\1\23enabled_at_startup\2\15type_hints\1\0\5\vprefix\5\21remove_colon_end\1\23remove_colon_start\1\14separator\a, \tshow\2\20parameter_hints\1\0\5\22only_current_line\1\21labels_separator\a  \14highlight\17LspInlayHint\26max_len_align_padding\3\1\18max_len_align\1\1\0\5\vprefix\b<- \21remove_colon_end\2\23remove_colon_start\1\14separator\a, \tshow\2\nsetup\19lsp-inlayhints\frequire\0" },
+    config = { "\27LJ\2\nï¿½\3\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\16inlay_hints\1\0\2\15debug_mode\1\23enabled_at_startup\2\15type_hints\1\0\5\vprefix\5\21remove_colon_end\1\23remove_colon_start\1\14separator\a, \tshow\2\20parameter_hints\1\0\5\22only_current_line\1\21labels_separator\a  \14highlight\17LspInlayHint\26max_len_align_padding\3\1\18max_len_align\1\1\0\5\vprefix\b<- \21remove_colon_end\2\23remove_colon_start\1\14separator\a, \tshow\2\nsetup\19lsp-inlayhints\frequire\0" },
     loaded = true,
     path = "/home/kidp2h/.local/share/nvim/site/pack/packer/start/lsp-inlayhints.nvim",
     url = "https://github.com/lvimuser/lsp-inlayhints.nvim"
@@ -281,7 +281,7 @@ _G.packer_plugins = {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   },
   ["lspkind.nvim"] = {
-    config = { "\27LJ\2\n\v\0\2\2\0\0\0\1L\1\2\0®\1\1\0\t\0\f\0\0186\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\n\0005\4\b\0009\5\4\0005\a\5\0003\b\6\0=\b\a\aB\5\2\2=\5\t\4=\4\v\3B\1\2\1K\0\1\0\15formatting\1\0\0\vformat\1\0\0\vbefore\0\1\0\2\tmode\vsymbol\rmaxwidth\0032\15cmp_format\nsetup\bcmp\flspkind\frequire\0" },
+    config = { "\27LJ\2\n\v\0\2\2\0\0\0\1L\1\2\0ï¿½\1\1\0\t\0\f\0\0186\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\n\0005\4\b\0009\5\4\0005\a\5\0003\b\6\0=\b\a\aB\5\2\2=\5\t\4=\4\v\3B\1\2\1K\0\1\0\15formatting\1\0\0\vformat\1\0\0\vbefore\0\1\0\2\tmode\vsymbol\rmaxwidth\0032\15cmp_format\nsetup\bcmp\flspkind\frequire\0" },
     loaded = true,
     path = "/home/kidp2h/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
@@ -412,7 +412,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
-    config = { "\27LJ\2\nO\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\npcall\0" },
+    config = { "\27LJ\2\nO\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2ï¿½9\2\3\1B\2\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\npcall\0" },
     load_after = {
       ["nvim-treesitter"] = true
     },
@@ -513,7 +513,7 @@ _G.packer_plugins = {
   },
   ui = {
     after = { "nvim-web-devicons" },
-    config = { "\27LJ\2\nI\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\nsetup\14nvchad_ui\frequire\npcall\0" },
+    config = { "\27LJ\2\nI\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2ï¿½9\2\3\1B\2\1\1K\0\1\0\nsetup\14nvchad_ui\frequire\npcall\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -549,7 +549,7 @@ _G.packer_plugins = {
     url = "https://github.com/wakatime/vim-wakatime"
   },
   ["wilder.nvim"] = {
-    config = { "\27LJ\2\nö\2\0\0\r\0\17\1\0296\0\0\0006\2\1\0'\3\2\0B\0\3\3\14\0\0\0X\2\1€K\0\1\0009\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\0019\2\a\1'\4\b\0009\5\t\0019\a\n\0015\t\v\0005\n\f\0009\v\r\1B\v\1\0?\v\0\0=\n\14\t9\n\15\1B\n\1\2=\n\16\tB\a\2\0A\5\0\0A\2\1\1K\0\1\0\16highlighter\22basic_highlighter\tleft\23popupmenu_devicons\1\2\0\0\6 \1\0\5\vborder\frounded\20prompt_position\btop\15min_height\3\0\15max_height\b75%\freverse\3\0\28popupmenu_palette_theme\23popupmenu_renderer\rrenderer\15set_option\nmodes\1\0\0\1\4\0\0\6:\6/\6?\nsetup\vwilder\frequire\npcall\5€€À™\4\0" },
+    config = { "\27LJ\2\nï¿½\2\0\0\r\0\17\1\0296\0\0\0006\2\1\0'\3\2\0B\0\3\3\14\0\0\0X\2\1ï¿½K\0\1\0009\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\0019\2\a\1'\4\b\0009\5\t\0019\a\n\0015\t\v\0005\n\f\0009\v\r\1B\v\1\0?\v\0\0=\n\14\t9\n\15\1B\n\1\2=\n\16\tB\a\2\0A\5\0\0A\2\1\1K\0\1\0\16highlighter\22basic_highlighter\tleft\23popupmenu_devicons\1\2\0\0\6 \1\0\5\vborder\frounded\20prompt_position\btop\15min_height\3\0\15max_height\b75%\freverse\3\0\28popupmenu_palette_theme\23popupmenu_renderer\rrenderer\15set_option\nmodes\1\0\0\1\4\0\0\6:\6/\6?\nsetup\vwilder\frequire\npcall\5ï¿½ï¿½ï¿½ï¿½\4\0" },
     loaded = true,
     path = "/home/kidp2h/.local/share/nvim/site/pack/packer/start/wilder.nvim",
     url = "https://github.com/gelguy/wilder.nvim"
@@ -618,7 +618,7 @@ try_loadstring("\27LJ\2\nN\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0
 time([[Setup for telescope.nvim]], false)
 -- Setup for: indent-blankline.nvim
 time([[Setup for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n˜\1\0\0\3\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0'\2\6\0B\0\2\1K\0\1\0\14blankline\18load_mappings\15core.utils\26indent-blankline.nvim\17on_file_open\19core.lazy_load\frequire\0", "setup", "indent-blankline.nvim")
+try_loadstring("\27LJ\2\nï¿½\1\0\0\3\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0029\0\5\0'\2\6\0B\0\2\1K\0\1\0\14blankline\18load_mappings\15core.utils\26indent-blankline.nvim\17on_file_open\19core.lazy_load\frequire\0", "setup", "indent-blankline.nvim")
 time([[Setup for indent-blankline.nvim]], false)
 -- Setup for: nvim-colorizer.lua
 time([[Setup for nvim-colorizer.lua]], true)
@@ -638,7 +638,7 @@ try_loadstring("\27LJ\2\nM\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0
 time([[Setup for nvim-tree.lua]], false)
 -- Config for: base46
 time([[Config for base46]], true)
-try_loadstring("\27LJ\2\nK\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\15load_theme\vbase46\frequire\npcall\0", "config", "base46")
+try_loadstring("\27LJ\2\nK\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2ï¿½9\2\3\1B\2\1\1K\0\1\0\15load_theme\vbase46\frequire\npcall\0", "config", "base46")
 time([[Config for base46]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
@@ -666,7 +666,7 @@ try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30custom.
 time([[Config for galaxyline.nvim]], false)
 -- Config for: lsp-inlayhints.nvim
 time([[Config for lsp-inlayhints.nvim]], true)
-try_loadstring("\27LJ\2\n•\3\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\16inlay_hints\1\0\2\15debug_mode\1\23enabled_at_startup\2\15type_hints\1\0\5\vprefix\5\21remove_colon_end\1\23remove_colon_start\1\14separator\a, \tshow\2\20parameter_hints\1\0\5\22only_current_line\1\21labels_separator\a  \14highlight\17LspInlayHint\26max_len_align_padding\3\1\18max_len_align\1\1\0\5\vprefix\b<- \21remove_colon_end\2\23remove_colon_start\1\14separator\a, \tshow\2\nsetup\19lsp-inlayhints\frequire\0", "config", "lsp-inlayhints.nvim")
+try_loadstring("\27LJ\2\nï¿½\3\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\3=\3\t\2B\0\2\1K\0\1\0\16inlay_hints\1\0\2\15debug_mode\1\23enabled_at_startup\2\15type_hints\1\0\5\vprefix\5\21remove_colon_end\1\23remove_colon_start\1\14separator\a, \tshow\2\20parameter_hints\1\0\5\22only_current_line\1\21labels_separator\a  \14highlight\17LspInlayHint\26max_len_align_padding\3\1\18max_len_align\1\1\0\5\vprefix\b<- \21remove_colon_end\2\23remove_colon_start\1\14separator\a, \tshow\2\nsetup\19lsp-inlayhints\frequire\0", "config", "lsp-inlayhints.nvim")
 time([[Config for lsp-inlayhints.nvim]], false)
 -- Config for: nvim-navic
 time([[Config for nvim-navic]], true)
@@ -686,11 +686,11 @@ try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26custom.
 time([[Config for nvim-notify]], false)
 -- Config for: lspkind.nvim
 time([[Config for lspkind.nvim]], true)
-try_loadstring("\27LJ\2\n\v\0\2\2\0\0\0\1L\1\2\0®\1\1\0\t\0\f\0\0186\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\n\0005\4\b\0009\5\4\0005\a\5\0003\b\6\0=\b\a\aB\5\2\2=\5\t\4=\4\v\3B\1\2\1K\0\1\0\15formatting\1\0\0\vformat\1\0\0\vbefore\0\1\0\2\tmode\vsymbol\rmaxwidth\0032\15cmp_format\nsetup\bcmp\flspkind\frequire\0", "config", "lspkind.nvim")
+try_loadstring("\27LJ\2\n\v\0\2\2\0\0\0\1L\1\2\0ï¿½\1\1\0\t\0\f\0\0186\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\n\0005\4\b\0009\5\4\0005\a\5\0003\b\6\0=\b\a\aB\5\2\2=\5\t\4=\4\v\3B\1\2\1K\0\1\0\15formatting\1\0\0\vformat\1\0\0\vbefore\0\1\0\2\tmode\vsymbol\rmaxwidth\0032\15cmp_format\nsetup\bcmp\flspkind\frequire\0", "config", "lspkind.nvim")
 time([[Config for lspkind.nvim]], false)
 -- Config for: wilder.nvim
 time([[Config for wilder.nvim]], true)
-try_loadstring("\27LJ\2\nö\2\0\0\r\0\17\1\0296\0\0\0006\2\1\0'\3\2\0B\0\3\3\14\0\0\0X\2\1€K\0\1\0009\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\0019\2\a\1'\4\b\0009\5\t\0019\a\n\0015\t\v\0005\n\f\0009\v\r\1B\v\1\0?\v\0\0=\n\14\t9\n\15\1B\n\1\2=\n\16\tB\a\2\0A\5\0\0A\2\1\1K\0\1\0\16highlighter\22basic_highlighter\tleft\23popupmenu_devicons\1\2\0\0\6 \1\0\5\vborder\frounded\20prompt_position\btop\15min_height\3\0\15max_height\b75%\freverse\3\0\28popupmenu_palette_theme\23popupmenu_renderer\rrenderer\15set_option\nmodes\1\0\0\1\4\0\0\6:\6/\6?\nsetup\vwilder\frequire\npcall\5€€À™\4\0", "config", "wilder.nvim")
+try_loadstring("\27LJ\2\nï¿½\2\0\0\r\0\17\1\0296\0\0\0006\2\1\0'\3\2\0B\0\3\3\14\0\0\0X\2\1ï¿½K\0\1\0009\2\3\0015\4\5\0005\5\4\0=\5\6\4B\2\2\0019\2\a\1'\4\b\0009\5\t\0019\a\n\0015\t\v\0005\n\f\0009\v\r\1B\v\1\0?\v\0\0=\n\14\t9\n\15\1B\n\1\2=\n\16\tB\a\2\0A\5\0\0A\2\1\1K\0\1\0\16highlighter\22basic_highlighter\tleft\23popupmenu_devicons\1\2\0\0\6 \1\0\5\vborder\frounded\20prompt_position\btop\15min_height\3\0\15max_height\b75%\freverse\3\0\28popupmenu_palette_theme\23popupmenu_renderer\rrenderer\15set_option\nmodes\1\0\0\1\4\0\0\6:\6/\6?\nsetup\vwilder\frequire\npcall\5ï¿½ï¿½ï¿½ï¿½\4\0", "config", "wilder.nvim")
 time([[Config for wilder.nvim]], false)
 -- Config for: goto-preview
 time([[Config for goto-preview]], true)
@@ -718,7 +718,7 @@ try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26plugins
 vim.cmd [[ packadd ui ]]
 
 -- Config for: ui
-try_loadstring("\27LJ\2\nI\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\nsetup\14nvchad_ui\frequire\npcall\0", "config", "ui")
+try_loadstring("\27LJ\2\nI\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2ï¿½9\2\3\1B\2\1\1K\0\1\0\nsetup\14nvchad_ui\frequire\npcall\0", "config", "ui")
 
 time([[Sequenced loading]], false)
 
