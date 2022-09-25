@@ -19,3 +19,37 @@
 
 
 - Neovim
+
+  - Dashboard
+
+
+  ![Neovim](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-43-00_1366x768.png)
+  
+  - Cmp
+  
+  ![Neovim](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-51-03_1366x768.png)
+  
+  - Telescope
+  
+  ![Neovim](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-51-43_1366x768.png)
+  
+  - Diagnostics
+  
+  ![Neovim](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-52-01_1366x768.png)
+  
+  - File Explorer
+  
+  ![Neovim](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-52-15_1366x768.png)
+  
+  - Aerial
+
+  ![Neovim]( https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-52-44_1366x768.png)
+  
+  - LazyGit
+  
+  ![Neovim](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-15-53-42_1366x768.png)
+
+  - Other .... (Updating)
+
+
+
