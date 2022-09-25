@@ -1,4 +1,8 @@
 # SCREENSHOT
+- Overview
+
+  ![Wallpaper](https://github.com/kidp2h/.github/blob/main/Screenshot_2022-09-25-16-25-33_1366x768.png)
+  
 - Live wallpaper
 
   ![Wallpaper](https://github.com/kidp2h/.github/blob/main/ezgif-2-f5574e1118.gif)
