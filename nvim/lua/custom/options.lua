@@ -1,6 +1,5 @@
 local opt = vim.opt
 local global = vim.g
-
 opt.relativenumber = true
 opt.number = true
 opt.swapfile = false
@@ -18,9 +17,15 @@ opt.foldcolumn = "2"
 opt.foldlevel = 0 -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable = true
+opt.laststatus = 2
 opt.fillchars = [[eob: ,vert: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.winbar = "\t%{%v:lua.require'nvim-navic'.get_location()%}"
+opt.pumheight = 10
+opt.showmode = false
+opt.showcmd = false
+opt.undofile = true -- enable persistent undo
+opt.updatetime = 100
 
 -- global
 global.airline_powerline_fonts = 1
@@ -30,3 +35,4 @@ global.neovide_no_idle = true
 global.neovide_cursor_animation_length = 0.13
 global.neovide_cursor_vfx_particle_density = 10.0
 global.neovide_hide_mouse_when_typing = true
+global.neovide_confirm_quit = true

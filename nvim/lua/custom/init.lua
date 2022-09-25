@@ -2,8 +2,8 @@
 
 -- replace string from file
 
-require "custom.commands"
-require "custom.options"
+require("custom.commands")
+require("custom.options")
 
 vim.api.nvim_set_hl(0, "NavicIconsFile", { default = true, bg = "#000000", fg = "#E5EE86" })
 vim.api.nvim_set_hl(0, "NavicIconsModule", { default = true, bg = "#000000", fg = "#FF86D3" })
@@ -34,3 +34,5 @@ vim.api.nvim_set_hl(0, "NavicIconsOperator", { default = true, bg = "#000000", f
 vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", { default = true, bg = "#000000", fg = "#896BB4" })
 vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "#000000", fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "#000000", fg = "#ffffff" })
+
+vim.api.nvim_exec([[ autocmd BufEnter * EnableBlameLine ]], false)
