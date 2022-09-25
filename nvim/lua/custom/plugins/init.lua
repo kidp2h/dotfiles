@@ -1,340 +1,583 @@
-local overrides = require "custom.plugins.overrides"
+local overrides = require("custom.plugins.overrides")
 
 return {
 
-  ----------------------------------------- default plugins ------------------------------------------
+	----------------------------------------- default plugins ------------------------------------------
+	--
+	["NvChad/ui"] = {
+		after = "base46",
+		module = "nvchad_ui",
+		config = function()
+			local present, nvchad_ui = pcall(require, "nvchad_ui")
 
-  ["goolord/alpha-nvim"] = {
-    disable = false,
-    override_options = overrides.alpha,
-  },
+			if present then
+				nvchad_ui.setup()
+			end
+		end,
+	},
 
-  ["NvChad/nvterm"] = {
-    override_options = overrides.nvterm,
-  },
-  ["neovim/nvim-lspconfig"] = {
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
-    end,
-  },
+	["goolord/alpha-nvim"] = {
+		disable = false,
+		override_options = overrides.alpha,
+	},
 
-  -- override default configs
-  ["kyazdani42/nvim-tree.lua"] = {
-    override_options = overrides.nvimtree,
-  },
+	["nvim-telescope/telescope.nvim"] = {
+		override_options = overrides.telescope,
+	},
+	["NvChad/nvterm"] = {
+		override_options = overrides.nvterm,
+	},
+	["neovim/nvim-lspconfig"] = {
+		config = function()
+			require("plugins.configs.lspconfig")
+			require("custom.plugins.lspconfig")
+		end,
+	},
 
-  ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = overrides.treesitter,
-  },
+	-- override default configs
+	["kyazdani42/nvim-tree.lua"] = {
+		override_options = overrides.nvimtree,
+	},
 
-  ["williamboman/mason.nvim"] = {
-    override_options = overrides.mason,
-  },
+	["nvim-treesitter/nvim-treesitter"] = {
+		override_options = overrides.treesitter,
+	},
 
-  --------------------------------------------- custom plugins ----------------------------------------------
-  -- autoclose tags in html, jsx only
-  ["windwp/nvim-ts-autotag"] = {
-    ft = { "html", "javascriptreact" },
-    after = "nvim-treesitter",
-    config = function()
-      local present, autotag = pcall(require, "nvim-ts-autotag")
+	["williamboman/mason.nvim"] = {
+		override_options = overrides.mason,
+	},
 
-      if present then
-        autotag.setup()
-      end
-    end,
-  },
+	--------------------------------------------- custom plugins ----------------------------------------------
+	-- autoclose tags in html, jsx only
+	["windwp/nvim-ts-autotag"] = {
+		ft = { "html", "javascriptreact" },
+		after = "nvim-treesitter",
+		config = function()
+			local present, autotag = pcall(require, "nvim-ts-autotag")
 
-  -- format & linting
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.null-ls"
-    end,
-  },
+			if present then
+				autotag.setup()
+			end
+		end,
+	},
 
-  -- distraction free modes
-  ["Pocco81/TrueZen.nvim"] = {
-    cmd = {
-      "TZAtaraxis",
-      "TZMinimalist",
-      "TZFocus",
-    },
-    config = function()
-      require "custom.plugins.truezen"
-    end,
-  },
+	-- format & linting
+	["jose-elias-alvarez/null-ls.nvim"] = {
+		after = "nvim-lspconfig",
+		config = function()
+			require("custom.plugins.null-ls")
+		end,
+	},
 
-  -- get highlight group under cursor
-  ["nvim-treesitter/playground"] = {
-    cmd = "TSCaptureUnderCursor",
-    config = function()
-      require("nvim-treesitter.configs").setup()
-    end,
-  },
+	-- distraction free modes
+	["Pocco81/TrueZen.nvim"] = {
+		cmd = {
+			"TZAtaraxis",
+			"TZMinimalist",
+			"TZFocus",
+		},
+		config = function()
+			require("custom.plugins.truezen")
+		end,
+	},
 
-  -- I rarely use shade.nvim/autosave.nvim so made commands to enable them
+	-- get highlight group under cursor
+	["nvim-treesitter/playground"] = {
+		cmd = "TSCaptureUnderCursor",
+		config = function()
+			require("nvim-treesitter.configs").setup()
+		end,
+	},
 
-  -- dim inactive windows
-  ["andreadev-it/shade.nvim"] = {
-    module = "shade",
-    config = function()
-      require "custom.plugins.shade"
-    end,
-  },
+	-- I rarely use shade.nvim/autosave.nvim so made commands to enable them
 
-  -- autosave
-  ["Pocco81/AutoSave.nvim"] = {
-    module = "autosave",
-    config = function()
-      require("autosave").setup()
-    end,
-  },
+	-- dim inactive windows
+	["andreadev-it/shade.nvim"] = {
+		module = "shade",
+		config = function()
+			require("custom.plugins.shade")
+		end,
+	},
 
-  -- notes & todo stuff
-  ["nvim-neorg/neorg"] = {
-    tag = "0.0.12",
-    ft = "norg",
-    after = "nvim-treesitter",
-    setup = function()
-      require("custom.plugins.neorg").autocmd()
-    end,
-    config = function()
-      require("custom.plugins.neorg").setup()
-    end,
-  },
+	-- autosave
+	["Pocco81/AutoSave.nvim"] = {
+		module = "autosave",
+		config = function()
+			require("autosave").setup()
+		end,
+	},
 
-  -- basic diagrams for flow charts etc
-  ["jbyuki/venn.nvim"] = {
-    module = "venn.nvim",
-    config = function()
-      require("custom.plugins.venn").setup()
-    end,
-  },
+	-- notes & todo stuff
+	["nvim-neorg/neorg"] = {
+		tag = "0.0.12",
+		ft = "norg",
+		after = "nvim-treesitter",
+		setup = function()
+			require("custom.plugins.neorg").autocmd()
+		end,
+		config = function()
+			require("custom.plugins.neorg").setup()
+		end,
+	},
 
-  ["rmagatti/goto-preview"] = {
-    config = function()
-      require("goto-preview").setup {
-        border = "rounded",
-        default_mappings = true,
-      }
-    end,
-  },
-  ["tpope/vim-surround"] = {},
-  ["mattn/emmet-vim"] = {},
-  ["terryma/vim-multiple-cursors"] = {},
-  ["wakatime/vim-wakatime"] = {},
-  ["folke/trouble.nvim"] = {
-    config = function()
-      require "custom.plugins.trouble"
-    end,
-  },
-  ["folke/todo-comments.nvim"] = {
-    config = function()
-      require "custom.plugins.todo-comments"
-    end,
-  },
-  -- ["romgrk/barbar.nvim"] = {},
-  ["tpope/vim-fugitive"] = {},
-  ["junegunn/gv.vim"] = {},
-  ["rcarriga/nvim-notify"] = {
-    config = function()
-      require "custom.plugins.notify"
-    end,
-  },
-  ["andweeb/presence.nvim"] = {
-    config = function()
-      require "custom.plugins.presence"
-    end,
-  },
-  ["phaazon/hop.nvim"] = {
-    config = function()
-      require("hop").setup {}
-    end,
-  },
-  ["MunifTanjim/nui.nvim"] = {},
-  ["folke/twilight.nvim"] = {
-    config = function()
-      require "custom.plugins.twilight"
-    end,
-  },
-  ["SmiteshP/nvim-navic"] = {
-    requires = "neovim/nvim-lspconfig",
-    config = function()
-      require "custom.plugins.navic"
-    end,
-  },
-  ["stevearc/dressing.nvim"] = {
-    config = function()
-      require "custom.plugins.dressing"
-    end,
-  },
-  ["romgrk/barbar.nvim"] = {},
-  ["xiyaowong/nvim-transparent"] = {
-    enable = true, -- boolean: enable transparent
-    extra_groups = { -- table/string: additional groups that should be cleared
-      "BufferLineTabClose",
-      "BufferlineBufferSelected",
-      "BufferLineFill",
-      "BufferLineBackground",
-      "BufferLineSeparator",
-      "BufferLineIndicatorSelected",
-    },
-    exclude = {}, -- table: groups you don't want to clear
-  },
-  ["nvim-lualine/lualine.nvim"] = {},
-  ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  },
-  ["weilbith/nvim-code-action-menu"] = {
-    cmd = "CodeActionMenu",
-  },
-  ["lewis6991/spellsitter.nvim"] = {
-    config = function()
-      require("spellsitter").setup {
-        -- Whether enabled, can be a list of filetypes, e.g. {'python', 'lua'}
-        enable = true,
-        debug = false,
-      }
-    end,
-  },
-  ["gelguy/wilder.nvim"] = {
-    config = function()
-      local present, wilder = pcall(require, "wilder")
-      if not present then
-        return
-      end
-      wilder.setup { modes = { ":", "/", "?" } }
-      wilder.set_option(
-        "renderer",
-        wilder.popupmenu_renderer(wilder.popupmenu_palette_theme {
-          -- 'single', 'double', 'rounded' or 'solid'
-          -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
-          border = "rounded",
-          max_height = "75%", -- max height of the palette
-          min_height = 0, -- set to the same as 'max_height' for a fixed height window
-          prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
-          reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
-          left = { " ", wilder.popupmenu_devicons() },
-          highlighter = wilder.basic_highlighter(),
-        })
-      )
-    end,
-  },
-  ["onsails/lspkind.nvim"] = {
+	-- basic diagrams for flow charts etc
+	["jbyuki/venn.nvim"] = {
+		module = "venn.nvim",
+		config = function()
+			require("custom.plugins.venn").setup()
+		end,
+	},
 
-    config = function()
-      local lspkind = require "lspkind"
-      require("cmp").setup {
-        formatting = {
-          format = lspkind.cmp_format {
-            mode = "symbol", -- show only symbol annotations
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+	["rmagatti/goto-preview"] = {
+		config = function()
+			require("goto-preview").setup({
+				border = "rounded",
+				default_mappings = true,
+			})
+		end,
+	},
+	["tpope/vim-surround"] = {},
+	["mattn/emmet-vim"] = {},
+	["terryma/vim-multiple-cursors"] = {},
+	["wakatime/vim-wakatime"] = {},
+	["folke/trouble.nvim"] = {
+		config = function()
+			require("custom.plugins.trouble")
+		end,
+	},
+	["folke/todo-comments.nvim"] = {
+		config = function()
+			require("custom.plugins.todo-comments")
+		end,
+	},
+	-- ["romgrk/barbar.nvim"] = {},
+	["tpope/vim-fugitive"] = {},
+	["junegunn/gv.vim"] = {},
+	["rcarriga/nvim-notify"] = {
+		config = function()
+			require("custom.plugins.notify")
+		end,
+	},
+	["andweeb/presence.nvim"] = {
+		config = function()
+			require("custom.plugins.presence")
+		end,
+	},
+	["phaazon/hop.nvim"] = {
+		config = function()
+			require("hop").setup({})
+		end,
+	},
+	["MunifTanjim/nui.nvim"] = {},
+	["folke/twilight.nvim"] = {
+		config = function()
+			require("custom.plugins.twilight")
+		end,
+	},
+	["SmiteshP/nvim-navic"] = {
+		requires = "neovim/nvim-lspconfig",
+		config = function()
+			require("custom.plugins.navic")
+		end,
+	},
+	["stevearc/dressing.nvim"] = {
+		config = function()
+			require("custom.plugins.dressing")
+		end,
+	},
+	["romgrk/barbar.nvim"] = {},
+	["xiyaowong/nvim-transparent"] = {
+		enable = true, -- boolean: enable transparent
+		extra_groups = { -- table/string: additional groups that should be cleared
+			"BufferLineTabClose",
+			"BufferlineBufferSelected",
+			"BufferLineFill",
+			"BufferLineBackground",
+			"BufferLineSeparator",
+			"BufferLineIndicatorSelected",
+		},
+		exclude = {}, -- table: groups you don't want to clear
+	},
+	["nvim-lualine/lualine.nvim"] = {},
+	["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	},
+	["weilbith/nvim-code-action-menu"] = {
+		cmd = "CodeActionMenu",
+	},
+	["lewis6991/spellsitter.nvim"] = {
+		config = function()
+			require("spellsitter").setup({
+				-- Whether enabled, can be a list of filetypes, e.g. {'python', 'lua'}
+				enable = true,
+				debug = false,
+			})
+		end,
+	},
+	["gelguy/wilder.nvim"] = {
+		config = function()
+			local present, wilder = pcall(require, "wilder")
+			if not present then
+				return
+			end
+			wilder.setup({ modes = { ":", "/", "?" } })
+			wilder.set_option(
+				"renderer",
+				wilder.popupmenu_renderer(wilder.popupmenu_palette_theme({
+					-- 'single', 'double', 'rounded' or 'solid'
+					-- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
+					border = "rounded",
+					max_height = "75%", -- max height of the palette
+					min_height = 0, -- set to the same as 'max_height' for a fixed height window
+					prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
+					reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
+					left = { " ", wilder.popupmenu_devicons() },
+					highlighter = wilder.basic_highlighter(),
+				}))
+			)
+		end,
+	},
+	["onsails/lspkind.nvim"] = {
 
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function(entry, vim_item)
-              return vim_item
-            end,
-          },
-        },
-      }
-    end,
-  },
-  ["jamestthompson3/nvim-remote-containers"] = {},
-  ["linty-org/key-menu.nvim"] = {
-    config = function()
-      vim.keymap.set("n", " ", function()
-        require("key-menu").open_window " "
-      end)
+		config = function()
+			local lspkind = require("lspkind")
+			require("cmp").setup({
+				formatting = {
+					format = lspkind.cmp_format({
+						mode = "symbol", -- show only symbol annotations
+						maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-      vim.keymap.set("n", "g", function()
-        require("key-menu").open_window "g"
-      end)
-    end,
-  },
-  ["lvimuser/lsp-inlayhints.nvim"] = {
-    config = function()
-      require("lsp-inlayhints").setup {
-        inlay_hints = {
-          parameter_hints = {
-            show = true,
-            prefix = "<- ",
-            separator = ", ",
-            remove_colon_start = false,
-            remove_colon_end = true,
-          },
-          type_hints = {
-            -- type and other hints
-            show = true,
-            prefix = "",
-            separator = ", ",
-            remove_colon_start = false,
-            remove_colon_end = false,
-          },
-          only_current_line = false,
-          -- separator between types and parameter hints. Note that type hints are
-          -- shown before parameter
-          labels_separator = "  ",
-          -- whether to align to the length of the longest line in the file
-          max_len_align = false,
-          -- padding from the left if max_len_align is true
-          max_len_align_padding = 1,
-          -- highlight group
-          highlight = "LspInlayHint",
-        },
-        enabled_at_startup = true,
-        debug_mode = false,
-      }
-    end,
-  },
-  ["glepnir/galaxyline.nvim"] = {
-    branch = "main",
-    config = function()
-      require "custom.plugins.galaxyline"
-    end,
-  },
-  ["lukas-reineke/indent-blankline.nvim"] = {
-    override_options = {
-      indentLine_enabled = 1,
-      filetype_exclude = {
-        "help",
-        "terminal",
-        "alpha",
-        "packer",
-        "lspinfo",
-        "TelescopePrompt",
-        "TelescopeResults",
-        "mason",
-        "",
-      },
-      buftype_exclude = { "terminal" },
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = false,
-      show_current_context = true,
-      show_current_context_start = true,
-      char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-      },
-    },
-  },
-  ["b0o/incline.nvim"] = {
-    config = function()
-      require "custom.plugins.incline"
-    end,
-  },
+						-- The function below will be called before any actual modifications from lspkind
+						-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+						before = function(entry, vim_item)
+							return vim_item
+						end,
+					}),
+				},
+			})
+		end,
+	},
+	["jamestthompson3/nvim-remote-containers"] = {},
+	["linty-org/key-menu.nvim"] = {
+		config = function()
+			vim.keymap.set("n", " ", function()
+				require("key-menu").open_window(" ")
+			end)
 
-  -- ["mrjones2014/legendary.nvim"] = {
-  --   config = {
-  --     require "custom.plugins.legendary",
-  --   },
-  -- },
+			vim.keymap.set("n", "g", function()
+				require("key-menu").open_window("g")
+			end)
+		end,
+	},
+	["lvimuser/lsp-inlayhints.nvim"] = {
+		config = function()
+			require("lsp-inlayhints").setup({
+				inlay_hints = {
+					parameter_hints = {
+						show = true,
+						prefix = "<- ",
+						separator = ", ",
+						remove_colon_start = false,
+						remove_colon_end = true,
+					},
+					type_hints = {
+						-- type and other hints
+						show = true,
+						prefix = "",
+						separator = ", ",
+						remove_colon_start = false,
+						remove_colon_end = false,
+					},
+					only_current_line = false,
+					-- separator between types and parameter hints. Note that type hints are
+					-- shown before parameter
+					labels_separator = "  ",
+					-- whether to align to the length of the longest line in the file
+					max_len_align = false,
+					-- padding from the left if max_len_align is true
+					max_len_align_padding = 1,
+					-- highlight group
+					highlight = "LspInlayHint",
+				},
+				enabled_at_startup = true,
+				debug_mode = false,
+			})
+		end,
+	},
+	["glepnir/galaxyline.nvim"] = {
+		branch = "main",
+		config = function()
+			require("custom.plugins.galaxyline")
+		end,
+	},
+	["lukas-reineke/indent-blankline.nvim"] = {
+		override_options = {
+			indentLine_enabled = 1,
+			filetype_exclude = {
+				"help",
+				"terminal",
+				"alpha",
+				"packer",
+				"lspinfo",
+				"TelescopePrompt",
+				"TelescopeResults",
+				"mason",
+				"",
+			},
+			buftype_exclude = { "terminal" },
+			show_trailing_blankline_indent = false,
+			show_first_indent_level = false,
+			show_current_context = true,
+			show_current_context_start = true,
+			char_highlight_list = {
+				"IndentBlanklineIndent1",
+				"IndentBlanklineIndent2",
+				"IndentBlanklineIndent3",
+				"IndentBlanklineIndent4",
+				"IndentBlanklineIndent5",
+				"IndentBlanklineIndent6",
+			},
+		},
+	},
+	["b0o/incline.nvim"] = {
+		config = function()
+			require("custom.plugins.incline")
+		end,
+	},
+
+	["anuvyklack/windows.nvim"] = {
+
+		requires = {
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim",
+		},
+		config = function()
+			vim.o.winwidth = 10
+			vim.o.winminwidth = 10
+			vim.o.equalalways = false
+			require("windows").setup()
+		end,
+	},
+	["kdheepak/lazygit.nvim"] = {},
+	["stevearc/aerial.nvim"] = {
+		config = function()
+			require("custom.plugins.aerial")
+		end,
+	},
+	["tveskag/nvim-blame-line"] = {},
+	["akinsho/git-conflict.nvim"] = {
+		config = function()
+			require("git-conflict").setup({
+				default_mappings = true, -- disable buffer local mapping created by this plugin
+				disable_diagnostics = false, -- This will disable the diagnostics in a buffer whilst it is conflicted
+				highlights = { -- They must have background color, otherwise the default color will be used
+					incoming = "DiffText",
+					current = "DiffAdd",
+				},
+			})
+		end,
+	},
+	["anuvyklack/pretty-fold.nvim"] = {
+		config = function()
+			require("pretty-fold").setup({
+				sections = {
+					left = {
+						"content",
+					},
+					right = {
+						" ",
+						"number_of_folded_lines",
+						": ",
+						"percentage",
+						" ",
+						function(config)
+							return config.fill_char:rep(3)
+						end,
+					},
+				},
+				fill_char = "•",
+
+				remove_fold_markers = true,
+
+				-- Keep the indentation of the content of the fold string.
+				keep_indentation = true,
+
+				-- Possible values:
+				-- "delete" : Delete all comment signs from the fold string.
+				-- "spaces" : Replace all comment signs with equal number of spaces.
+				-- false    : Do nothing with comment signs.
+				process_comment_signs = "spaces",
+
+				-- Comment signs additional to the value of `&commentstring` option.
+				comment_signs = {},
+
+				-- List of patterns that will be removed from content foldtext section.
+				stop_words = {
+					"@brief%s*", -- (for C++) Remove '@brief' and all spaces after.
+				},
+
+				add_close_pattern = true, -- true, 'last_line' or false
+
+				matchup_patterns = {
+					{ "{", "}" },
+					{ "%(", ")" }, -- % to escape lua pattern char
+					{ "%[", "]" }, -- % to escape lua pattern char
+				},
+
+				ft_ignore = { "neorg" },
+			})
+		end,
+	},
+	["preservim/tagbar"] = {},
+	["ray-x/lsp_signature.nvim"] = {},
+	["m-demare/hlargs.nvim"] = {
+		config = function()
+			require("hlargs").setup({})
+		end,
+	},
+	["RRethy/vim-illuminate"] = {
+		config = function()
+			require("illuminate").configure({
+				-- providers: provider used to get references in the buffer, ordered by priority
+				providers = {
+					"lsp",
+					"treesitter",
+					"regex",
+				},
+				-- delay: delay in milliseconds
+				delay = 100,
+				-- filetype_overrides: filetype specific overrides.
+				-- The keys are strings to represent the filetype while the values are tables that
+				-- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
+				filetype_overrides = {},
+				-- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
+				filetypes_denylist = {
+					"dirvish",
+					"fugitive",
+					"alpha",
+					"NvimTree",
+					"packer",
+					"neogitstatus",
+					"Trouble",
+					"lir",
+					"Outline",
+					"spectre_panel",
+					"toggleterm",
+					"DressingSelect",
+					"TelescopePrompt",
+				},
+				-- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist
+				filetypes_allowlist = {},
+				-- modes_denylist: modes to not illuminate, this overrides modes_allowlist
+				modes_denylist = {},
+				-- modes_allowlist: modes to illuminate, this is overriden by modes_denylist
+				modes_allowlist = {},
+				-- providers_regex_syntax_denylist: syntax to not illuminate, this overrides providers_regex_syntax_allowlist
+				-- Only applies to the 'regex' provider
+				-- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+				providers_regex_syntax_denylist = {},
+				-- providers_regex_syntax_allowlist: syntax to illuminate, this is overriden by providers_regex_syntax_denylist
+				-- Only applies to the 'regex' provider
+				-- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
+				providers_regex_syntax_allowlist = {},
+				-- under_cursor: whether or not to illuminate under the cursor
+				under_cursor = true,
+				-- max_file_lines: max number of lines in a file to illuminate
+				max_file_lines = nil,
+			})
+		end,
+	},
+	["nyngwang/NeoRoot.lua"] = {
+		config = function()
+			require("neo-root").setup({
+				CUR_MODE = 2, -- 1 for file/buffer mode, 2 for proj-mode
+			})
+			local NOREF_NOERR_TRUNC = { noremap = true, silent = true, nowait = true }
+			vim.cmd("au BufEnter * NeoRoot")
+			vim.keymap.set("n", "<Leader>p", function()
+				vim.cmd("NeoRootSwitchMode")
+			end, NOREF_NOERR_TRUNC)
+			vim.keymap.set("n", "<Leader>pre", function()
+				vim.cmd("NeoRootChange")
+			end, NOREF_NOERR_TRUNC)
+		end,
+	},
+	["cljoly/telescope-repo.nvim"] = {},
+	["p00f/nvim-ts-rainbow"] = {
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				rainbow = {
+					enable = true,
+					-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+					extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+					max_file_lines = nil, -- Do not enable for files with more than n lines, int
+					-- colors = {}, -- table of hex strings
+					-- termcolors = {} -- table of colour name strings
+				},
+			})
+		end,
+	},
+	["nacro90/numb.nvim"] = {
+		config = function()
+			require("numb").setup({
+				show_numbers = true, -- Enable 'number' for the window while peeking
+				show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+				number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
+				centered_peeking = true, -- Peeked line will be centered relative to window
+			})
+		end,
+	},
+	["kevinhwang91/nvim-hlslens"] = {},
+	["romgrk/searchbox.nvim"] = {
+		requires = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+		config = function()
+			require("searchbox").setup({
+				icons = {
+					search = " ",
+					case_sensitive = " ",
+					pattern = " ",
+					fuzzy = " ",
+				},
+				popup = {
+					relative = "win",
+					position = {
+						row = "5%",
+						col = "95%",
+					},
+					size = 30,
+					border = {
+						style = "rounded",
+						highlight = "FloatBorder",
+						text = {
+							top = " Search ",
+							top_align = "left",
+						},
+					},
+					win_options = {
+						winhighlight = "Normal:Normal",
+					},
+				},
+				hooks = {
+					before_mount = function(input)
+						-- code
+					end,
+					after_mount = function(input)
+						-- code
+					end,
+					on_done = function(value, search_type)
+						-- code
+					end,
+				},
+			})
+		end,
+	},
 }
+-- ["mrjones2014/legendary.nvim"] = {
+--   config = {
+--     require "custom.plugins.legendary",
+--   },
+-- },
