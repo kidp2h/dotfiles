@@ -12,20 +12,21 @@ opt.smarttab = true
 opt.fileencoding = "utf-8"
 opt.termguicolors = true
 opt.smartcase = true
-opt.guifont = { "CaskaydiaCove Nerd Font", ":h11" }
+opt.guifont = { "CaskaydiaCove Nerd Font:h12" }
 opt.foldcolumn = "2"
 opt.foldlevel = 0 -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable = true
 opt.laststatus = 2
 opt.fillchars = [[eob: ,vert: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.winbar = "\t%{%v:lua.require'nvim-navic'.get_location()%}"
 opt.pumheight = 10
 opt.showmode = false
 opt.showcmd = false
 opt.undofile = true -- enable persistent undo
 opt.updatetime = 100
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- global
 global.airline_powerline_fonts = 1

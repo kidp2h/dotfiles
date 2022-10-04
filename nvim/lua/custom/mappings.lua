@@ -29,6 +29,12 @@ M.truzen = {
 	},
 }
 
+M.projects = {
+	n = {
+		["<C-p>"] = { "<cmd> Telescope projects <CR>", "Switch Projects" },
+	},
+}
+
 M.Aerial = {
 	n = {
 		["<leader>a"] = { "<cmd>AerialToggle!<CR>", "Toggle Aerial" },

@@ -439,86 +439,10 @@ return {
 	},
 	["RRethy/vim-illuminate"] = {
 		config = function()
-			require("illuminate").configure({
-				-- providers: provider used to get references in the buffer, ordered by priority
-				providers = {
-					"lsp",
-					"treesitter",
-					"regex",
-				},
-				-- delay: delay in milliseconds
-				delay = 100,
-				-- filetype_overrides: filetype specific overrides.
-				-- The keys are strings to represent the filetype while the values are tables that
-				-- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
-				filetype_overrides = {},
-				-- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
-				filetypes_denylist = {
-					"dirvish",
-					"fugitive",
-					"alpha",
-					"NvimTree",
-					"packer",
-					"neogitstatus",
-					"Trouble",
-					"lir",
-					"Outline",
-					"spectre_panel",
-					"toggleterm",
-					"DressingSelect",
-					"TelescopePrompt",
-				},
-				-- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist
-				filetypes_allowlist = {},
-				-- modes_denylist: modes to not illuminate, this overrides modes_allowlist
-				modes_denylist = {},
-				-- modes_allowlist: modes to illuminate, this is overriden by modes_denylist
-				modes_allowlist = {},
-				-- providers_regex_syntax_denylist: syntax to not illuminate, this overrides providers_regex_syntax_allowlist
-				-- Only applies to the 'regex' provider
-				-- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
-				providers_regex_syntax_denylist = {},
-				-- providers_regex_syntax_allowlist: syntax to illuminate, this is overriden by providers_regex_syntax_denylist
-				-- Only applies to the 'regex' provider
-				-- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
-				providers_regex_syntax_allowlist = {},
-				-- under_cursor: whether or not to illuminate under the cursor
-				under_cursor = true,
-				-- max_file_lines: max number of lines in a file to illuminate
-				max_file_lines = nil,
-			})
-		end,
-	},
-	["nyngwang/NeoRoot.lua"] = {
-		config = function()
-			require("neo-root").setup({
-				CUR_MODE = 2, -- 1 for file/buffer mode, 2 for proj-mode
-			})
-			local NOREF_NOERR_TRUNC = { noremap = true, silent = true, nowait = true }
-			vim.cmd("au BufEnter * NeoRoot")
-			vim.keymap.set("n", "<Leader>p", function()
-				vim.cmd("NeoRootSwitchMode")
-			end, NOREF_NOERR_TRUNC)
-			vim.keymap.set("n", "<Leader>pre", function()
-				vim.cmd("NeoRootChange")
-			end, NOREF_NOERR_TRUNC)
+			require("custom.plugins.illuminate")
 		end,
 	},
 	["cljoly/telescope-repo.nvim"] = {},
-	["p00f/nvim-ts-rainbow"] = {
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				rainbow = {
-					enable = true,
-					-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-					extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-					max_file_lines = nil, -- Do not enable for files with more than n lines, int
-					-- colors = {}, -- table of hex strings
-					-- termcolors = {} -- table of colour name strings
-				},
-			})
-		end,
-	},
 	["nacro90/numb.nvim"] = {
 		config = function()
 			require("numb").setup({
@@ -530,54 +454,9 @@ return {
 		end,
 	},
 	["kevinhwang91/nvim-hlslens"] = {},
-	["romgrk/searchbox.nvim"] = {
-		requires = {
-			{ "MunifTanjim/nui.nvim" },
-		},
+	["ahmedkhalf/project.nvim"] = {
 		config = function()
-			require("searchbox").setup({
-				icons = {
-					search = " ",
-					case_sensitive = " ",
-					pattern = " ",
-					fuzzy = " ",
-				},
-				popup = {
-					relative = "win",
-					position = {
-						row = "5%",
-						col = "95%",
-					},
-					size = 30,
-					border = {
-						style = "rounded",
-						highlight = "FloatBorder",
-						text = {
-							top = " Search ",
-							top_align = "left",
-						},
-					},
-					win_options = {
-						winhighlight = "Normal:Normal",
-					},
-				},
-				hooks = {
-					before_mount = function(input)
-						-- code
-					end,
-					after_mount = function(input)
-						-- code
-					end,
-					on_done = function(value, search_type)
-						-- code
-					end,
-				},
-			})
+			require("custom.plugins.project")
 		end,
 	},
 }
--- ["mrjones2014/legendary.nvim"] = {
---   config = {
---     require "custom.plugins.legendary",
---   },
--- },
