@@ -6,6 +6,10 @@ local M = {
 		HlSearchLens = {
 			bg = "red",
 		},
+		LspInlayHint = {
+			bg = "#393C4C",
+			fg = "#A7A8AC",
+		},
 		IlluminatedWordText = {
 			bg = "#353941",
 		},
@@ -123,7 +127,8 @@ local M = {
 			bg = "none",
 		},
 		LspInlayHint = {
-			bg = "none",
+			bg = "#393C4C",
+			fg = "#A7A8AC",
 		},
 
 		KeyMenuFloatBorder = {

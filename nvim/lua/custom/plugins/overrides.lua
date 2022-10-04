@@ -42,8 +42,23 @@ M.nvimtree = {
 			},
 		},
 	},
+	hijack_unnamed_buffer_when_opening = true,
+	hijack_cursor = true,
+	diagnostics = {
+		enable = true,
+		show_on_dirs = false,
+		debounce_delay = 50,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
+	system_open = { cmd = "thunar" },
 	sync_root_with_cwd = true,
 	renderer = {
+		highlight_opened_files = "name",
 		highlight_git = true,
 		group_empty = true,
 		icons = {
@@ -101,6 +116,7 @@ M.mason = {
 		"eslint-lsp",
 		"yaml-language-server",
 		"yamllint",
+		"prettier",
 		"yamlfmt",
 
 		-- shell
@@ -125,7 +141,7 @@ M.telescope = {
 			},
 		},
 	},
-	extensions_list = { "themes", "terms", "notify", "aerial", "repo" },
+	extensions_list = { "themes", "terms", "notify", "aerial", "repo", "projects" },
 }
 
 M.bufferline = {

@@ -7,7 +7,7 @@ CONFIG="$HOME/.config/bspwm/alacritty/alacritty.yml"
 if [ "$1" == "-f" ]; then
 	alacritty --class 'alacritty-float,alacritty-float' --config-file "$CONFIG"
 elif [ "$1" == "-s" ]; then
-	alacritty --class 'Fullscreen,Fullscreen' --config-file "$CONFIG" -o window.startup_mode=fullscreen window.padding.x=30 window.padding.y=30 window.opacity=0.95 font.size=14
+	alacritty --class 'Fullscreen,Fullscreen' --config-file "$CONFIG" -o window.startup_mode=fullscreen window.padding.x=30 window.padding.y=30 window.opacity=0.5 font.size=14
 else
 	alacritty --config-file "$CONFIG"
 fi
