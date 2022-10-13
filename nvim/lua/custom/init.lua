@@ -35,4 +35,4 @@ vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", { default = true, bg = "#00000
 vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "#000000", fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "#000000", fg = "#ffffff" })
 
-vim.api.nvim_exec([[ autocmd BufEnter * EnableBlameLine ]], false)
+-- vim.api.nvim_exec([[ autocmd BufEnter * EnableBlameLine ]], false)
