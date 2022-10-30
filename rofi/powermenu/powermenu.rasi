@@ -1,7 +1,7 @@
 
 
 configuration {
-	font:							"Fantasque Sans Mono 10";
+	font:							"Fantasque Sans Mono 13";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -32,12 +32,12 @@ prompt {
 	padding: 						10px 15px 10px 15px;
 	background-color: 				@bg2;
 	text-color: 					#FFFFFF;
-	font:							"Iosevka Nerd Font 10";
+	font:							"Iosevka Nerd Font 13";
 }
 
 textbox-prompt-colon {
 	padding: 						10px 15px 10px 15px;
-	font:							"Iosevka Nerd Font 10";
+	font:							"Iosevka Nerd Font 13";
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
 	expand: false;

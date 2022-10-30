@@ -1,2 +1,2 @@
-id=$(xinput list --id-only "$KEYBOARD")
+id=$(xinput list --id-only "keyboard:$KEYBOARD")
 xinput disable $id
