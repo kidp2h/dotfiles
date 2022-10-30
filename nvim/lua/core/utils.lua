@@ -175,7 +175,6 @@ M.packer_sync = function(...)
 			end
 		end
 	end
-
 	if packer_exists then
 		packer.sync(...)
 

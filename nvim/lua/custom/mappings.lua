@@ -157,4 +157,86 @@ M.PreventArrow = {
 	},
 }
 
+M.lspconfig = {
+	plugin = true,
+
+	-- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
+
+	n = {
+
+		["gh"] = {
+			"<cmd>Lspsaga lsp_finder<CR>",
+			"lsp finder",
+			opts = {
+				silent = true,
+			},
+		},
+		["gd"] = {
+			"<cmd>Lspsaga peek_definition<CR>",
+			"lsp finder",
+			opts = {
+				silent = true,
+			},
+		},
+		["<leader>o"] = {
+			"<cmd>LSoutlineToggle<CR>",
+			"lspsaga outline",
+			opts = {
+				silent = true,
+			},
+		},
+
+		["[e"] = {
+			"<cmd>Lspsaga diagnostic_jump_prev<CR>",
+			"goto prev",
+			opts = {
+				silent = true,
+			},
+		},
+
+		["e]"] = {
+			"<cmd>Lspsaga diagnostic_jump_next<CR>",
+			"goto next",
+			opts = {
+				silent = true,
+			},
+		},
+
+		["K"] = {
+			"<cmd>Lspsaga hover_doc<CR>",
+			"lspsaga hover doc",
+			opts = {
+				silent = true,
+			},
+		},
+		["<leader>f"] = {
+			"<cmd>Lspsaga show_cursor_diagnostics<CR>",
+			"Lspsaga show diagnostic",
+			opts = {
+				silent = true,
+			},
+		},
+		["<leader>ca"] = {
+			"<cmd>Lspsaga code_action<CR>",
+			"Lspsaga code action",
+			opts = {
+				silent = true,
+			},
+		},
+	},
+}
+
+M.windows = {
+	n = {
+
+		["<C-w>"] = {
+			"<cmd>lua require'nvim-window'.pick()<CR>",
+			"Pick Window",
+			opts = {
+				silent = true,
+			},
+		},
+	},
+}
+
 return M
