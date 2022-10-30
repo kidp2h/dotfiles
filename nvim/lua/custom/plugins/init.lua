@@ -11,7 +11,12 @@ return {
 			local present, nvchad_ui = pcall(require, "nvchad_ui")
 
 			if present then
-				nvchad_ui.setup()
+				nvchad_ui.setup({
+					statusline = nil,
+					tabufline = {
+						enable = false,
+					},
+				})
 			end
 		end,
 	},
@@ -354,9 +359,9 @@ return {
 			"anuvyklack/animation.nvim",
 		},
 		config = function()
-			vim.o.winwidth = 10
-			vim.o.winminwidth = 10
-			vim.o.equalalways = false
+			vim.opt.winwidth = 10
+			vim.opt.winminwidth = 10
+			vim.opt.equalalways = false
 			require("windows").setup()
 		end,
 	},
@@ -366,7 +371,7 @@ return {
 			require("custom.plugins.aerial")
 		end,
 	},
-	["tveskag/nvim-blame-line"] = {},
+	-- ["tveskag/nvim-blame-line"] = {},
 	["akinsho/git-conflict.nvim"] = {
 		config = function()
 			require("git-conflict").setup({
@@ -453,10 +458,83 @@ return {
 			})
 		end,
 	},
-	["kevinhwang91/nvim-hlslens"] = {},
+	["kevinhwang91/nvim-hlslens"] = {
+		config = function()
+			require("hlslens").setup()
+		end,
+	},
 	["ahmedkhalf/project.nvim"] = {
 		config = function()
 			require("custom.plugins.project")
+		end,
+	},
+	["glepnir/lspsaga.nvim"] = {
+		config = function()
+			require("custom.plugins.lspsaga")
+		end,
+	},
+	["folke/tokyonight.nvim"] = {},
+	["melkster/modicator.nvim"] = {
+		config = function()
+			require("custom.plugins.modicator")
+		end,
+	},
+	["j-hui/fidget.nvim"] = {
+		config = function()
+			require("fidget").setup({})
+		end,
+	},
+	["rafamadriz/friendly-snippets"] = {},
+	["f-person/git-blame.nvim"] = {},
+	["lewis6991/satellite.nvim"] = {
+		config = function()
+			require("satellite").setup()
+		end,
+	},
+	["https://gitlab.com/yorickpeterse/nvim-window"] = {
+		config = function()
+			require("nvim-window").setup({
+				-- The characters available for hinting windows.
+				chars = {
+					"a",
+					"b",
+					"c",
+					"d",
+					"e",
+					"f",
+					"g",
+					"h",
+					"i",
+					"j",
+					"k",
+					"l",
+					"m",
+					"n",
+					"o",
+					"p",
+					"q",
+					"r",
+					"s",
+					"t",
+					"u",
+					"v",
+					"w",
+					"x",
+					"y",
+					"z",
+				},
+
+				-- A group to use for overwriting the Normal highlight group in the floating
+				-- window. This can be used to change the background color.
+				normal_hl = "Normal",
+
+				-- The highlight group to apply to the line that contains the hint characters.
+				-- This is used to make them stand out more.
+				hint_hl = "Bold",
+
+				-- The border style to use for the floating window.
+				border = "single",
+			})
 		end,
 	},
 }

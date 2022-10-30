@@ -1,0 +1,12 @@
+{
+  "name": "snippets",
+  "author": "kidp2h",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "php",
+        "path": "./php.json"
+      }
+    ]
+  }
+}

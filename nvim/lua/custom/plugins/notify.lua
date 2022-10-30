@@ -1,13 +1,13 @@
 local present, notify = pcall(require, "notify")
 
 if not present then
-  return
+	return
 end
 
 local options = {
-  background_colour = "#000000",
+	background_colour = "#000000",
 }
 
 notify.setup(options)
 
- -- notify("Welcome to my world", "success", { background_colour = "#000000", title = "System" })
+-- notify("Welcome to my world", "success", { background_colour = "#000000", title = "System" })

@@ -12,7 +12,8 @@ M.treesitter = {
 		"c",
 		"bash",
 		"lua",
-		"norg",
+		"php",
+		"phpdoc",
 		"typescript",
 		"tsx",
 		"graphql",
@@ -21,6 +22,10 @@ M.treesitter = {
 		"yaml",
 		"regex",
 	},
+	playground = {
+		enable = true,
+	},
+	auto_install = true,
 }
 
 M.whichkey = {
@@ -118,6 +123,7 @@ M.mason = {
 		"yamllint",
 		"prettier",
 		"yamlfmt",
+		"intelephense",
 
 		-- shell
 		"shfmt",
@@ -141,7 +147,7 @@ M.telescope = {
 			},
 		},
 	},
-	extensions_list = { "themes", "terms", "notify", "aerial", "repo", "projects" },
+	extensions_list = { "themes", "terms", "notify", "aerial", "repo", "projects", "noice" },
 }
 
 M.bufferline = {

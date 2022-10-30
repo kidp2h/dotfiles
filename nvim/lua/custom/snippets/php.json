@@ -1,0 +1,13 @@
+{
+  "Print pretty array": {
+    "prefix": "pea",
+    "body": ["echo \"<pre>\";", "var_dump($${1:array});", "echo \"</pre>\";"],
+    "description": "Print pretty array"
+  },
+
+  "PHP Tag": {
+    "prefix": "php",
+    "body": ["<?php ", "${1://CODE}", "?>"],
+    "description": "PHP Tag"
+  }
+}
