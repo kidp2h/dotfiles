@@ -117,7 +117,7 @@ local M = {
 		},
 	},
 
-	overriden_hlgroups = {
+	overridden_hlgroups = {
 		AlphaHeader = {
 			fg = "blue",
 		},

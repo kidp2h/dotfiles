@@ -176,7 +176,7 @@ M.packer_init = function()
 			removed_sym = " ",
 			moved_sym = "",
 			open_fn = function()
-				return require("packer.util").float({ border = "single" })
+				return require("packer.util").float({ border = "rounded" })
 			end,
 		},
 	}

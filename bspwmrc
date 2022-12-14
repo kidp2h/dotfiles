@@ -129,5 +129,9 @@ bspcolors
 bspbar
 bspcomp
 bspdunst
-livewallpaper &
+
+libinput-gestures-setup start
+earlyoom
+dbus-launch fctix5
+# livewallpaper &
 bspfloat &

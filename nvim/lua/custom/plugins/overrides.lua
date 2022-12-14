@@ -38,7 +38,7 @@ M.nvimtree = {
 	},
 	view = {
 		float = {
-			enable = true,
+			enable = false,
 			open_win_config = {
 				relative = "cursor",
 				border = "rounded",
@@ -50,13 +50,10 @@ M.nvimtree = {
 	hijack_unnamed_buffer_when_opening = true,
 	hijack_cursor = true,
 	diagnostics = {
-		enable = true,
+		enable = false,
 		show_on_dirs = false,
 		debounce_delay = 50,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
 			error = "",
 		},
 	},
@@ -70,6 +67,12 @@ M.nvimtree = {
 			show = {
 				git = true,
 			},
+		},
+	},
+	tab = {
+		sync = {
+			open = true,
+			close = true,
 		},
 	},
 }
@@ -86,7 +89,6 @@ M.blankline = {
 		"nvchad_cheatsheet",
 		"lsp-installer",
 		"norg",
-		"",
 	},
 }
 
@@ -136,18 +138,16 @@ M.telescope = {
 		file_ignore_patterns = { "node_modules", ".docker", ".git" },
 	},
 	extensions = {
-		repo = {
-			list = {
-				fd_opts = {
-					"--no-ignore-vcs",
-				},
-				search_dirs = {
-					"~/Documents/box-universe/",
-				},
+		project = {
+			base_dirs = {
+				{ "~/Projects/" },
 			},
+			hidden_files = true, -- default: false
+			order_by = "asc",
+			sync_with_nvim_tree = true, -- default false
 		},
 	},
-	extensions_list = { "themes", "terms", "notify", "aerial", "repo", "projects", "noice" },
+	extensions_list = { "themes", "terms", "notify", "project" },
 }
 
 M.bufferline = {
@@ -183,5 +183,52 @@ M.nvterm = {
 		auto_insert = true,
 	},
 	enable_new_mappings = true,
+}
+M.cmp = {
+
+	window = {
+		completion = {
+			border = "rounded",
+			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		},
+		documentation = {
+			border = "rounded",
+		},
+	},
+}
+M.ui = {
+	statusline = {
+		separator_style = "default", -- default/round/block/arrow
+		overriden_modules = function()
+			local X = {}
+			X.modes = function()
+				return ""
+			end
+			X.fileInfo = function()
+				return ""
+			end
+
+			X.git = function()
+				return ""
+			end
+			X.LSP_progress = function()
+				return ""
+			end
+			X.LSP_Diagnostics = function()
+				return ""
+			end
+			X.LSP_status = function()
+				return ""
+			end
+			X.cwd = function()
+				return ""
+			end
+
+			X.cursor_position = function()
+				return ""
+			end
+			return X
+		end,
+	},
 }
 return M

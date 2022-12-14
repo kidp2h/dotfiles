@@ -5,20 +5,21 @@ return {
 	----------------------------------------- default plugins ------------------------------------------
 	--
 	["NvChad/ui"] = {
-		after = "base46",
-		module = "nvchad_ui",
-		config = function()
-			local present, nvchad_ui = pcall(require, "nvchad_ui")
-
-			if present then
-				nvchad_ui.setup({
-					statusline = nil,
-					tabufline = {
-						enable = false,
-					},
-				})
-			end
-		end,
+		-- after = "base46",
+		-- module = "nvchad_ui",
+		-- config = function()
+		-- 	local present, nvchad_ui = pcall(require, "nvchad_ui")
+		--
+		-- 	if present then
+		-- 		nvchad_ui.setup({
+		-- 			statusline = nil,
+		-- 			tabufline = {
+		-- 				enable = false,
+		-- 			},
+		-- 		})
+		-- 	end
+		-- end,
+		override_options = overrides.ui,
 	},
 
 	["goolord/alpha-nvim"] = {
@@ -38,7 +39,9 @@ return {
 			require("custom.plugins.lspconfig")
 		end,
 	},
-
+	["hrsh7th/nvim-cmp"] = {
+		override_options = overrides.cmp,
+	},
 	-- override default configs
 	["kyazdani42/nvim-tree.lua"] = {
 		override_options = overrides.nvimtree,
@@ -179,12 +182,12 @@ return {
 			require("custom.plugins.twilight")
 		end,
 	},
-	["SmiteshP/nvim-navic"] = {
-		requires = "neovim/nvim-lspconfig",
-		config = function()
-			require("custom.plugins.navic")
-		end,
-	},
+	-- ["SmiteshP/nvim-navic"] = {
+	-- 	requires = "neovim/nvim-lspconfig",
+	-- 	config = function()
+	-- 		require("custom.plugins.navic")
+	-- 	end,
+	-- },
 	["stevearc/dressing.nvim"] = {
 		config = function()
 			require("custom.plugins.dressing")
@@ -346,31 +349,31 @@ return {
 			},
 		},
 	},
-	["b0o/incline.nvim"] = {
-		config = function()
-			require("custom.plugins.incline")
-		end,
-	},
+	-- ["b0o/incline.nvim"] = {
+	-- 	config = function()
+	-- 		require("custom.plugins.incline")
+	-- 	end,
+	-- },
 
-	["anuvyklack/windows.nvim"] = {
-
-		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim",
-		},
-		config = function()
-			vim.opt.winwidth = 10
-			vim.opt.winminwidth = 10
-			vim.opt.equalalways = false
-			require("windows").setup()
-		end,
-	},
+	-- ["anuvyklack/windows.nvim"] = {
+	--
+	-- 	requires = {
+	-- 		"anuvyklack/middleclass",
+	-- 		"anuvyklack/animation.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		vim.opt.winwidth = 10
+	-- 		vim.opt.winminwidth = 10
+	-- 		vim.opt.equalalways = false
+	-- 		require("windows").setup()
+	-- 	end,
+	-- },
 	["kdheepak/lazygit.nvim"] = {},
-	["stevearc/aerial.nvim"] = {
-		config = function()
-			require("custom.plugins.aerial")
-		end,
-	},
+	-- ["stevearc/aerial.nvim"] = {
+	-- 	config = function()
+	-- 		require("custom.plugins.aerial")
+	-- 	end,
+	-- },
 	-- ["tveskag/nvim-blame-line"] = {},
 	["akinsho/git-conflict.nvim"] = {
 		config = function()
@@ -387,51 +390,26 @@ return {
 	["anuvyklack/pretty-fold.nvim"] = {
 		config = function()
 			require("pretty-fold").setup({
+				keep_indentation = false,
+				fill_char = "━",
 				sections = {
 					left = {
+						"━ ",
+						function()
+							return string.rep("*", vim.v.foldlevel)
+						end,
+						" ━┫",
 						"content",
+						"┣",
 					},
 					right = {
-						" ",
+						"┫ ",
 						"number_of_folded_lines",
 						": ",
 						"percentage",
-						" ",
-						function(config)
-							return config.fill_char:rep(3)
-						end,
+						" ┣━━",
 					},
 				},
-				fill_char = "•",
-
-				remove_fold_markers = true,
-
-				-- Keep the indentation of the content of the fold string.
-				keep_indentation = true,
-
-				-- Possible values:
-				-- "delete" : Delete all comment signs from the fold string.
-				-- "spaces" : Replace all comment signs with equal number of spaces.
-				-- false    : Do nothing with comment signs.
-				process_comment_signs = "spaces",
-
-				-- Comment signs additional to the value of `&commentstring` option.
-				comment_signs = {},
-
-				-- List of patterns that will be removed from content foldtext section.
-				stop_words = {
-					"@brief%s*", -- (for C++) Remove '@brief' and all spaces after.
-				},
-
-				add_close_pattern = true, -- true, 'last_line' or false
-
-				matchup_patterns = {
-					{ "{", "}" },
-					{ "%(", ")" }, -- % to escape lua pattern char
-					{ "%[", "]" }, -- % to escape lua pattern char
-				},
-
-				ft_ignore = { "neorg" },
 			})
 		end,
 	},
@@ -463,10 +441,14 @@ return {
 			require("hlslens").setup()
 		end,
 	},
-	["ahmedkhalf/project.nvim"] = {
-		config = function()
-			require("custom.plugins.project")
-		end,
+	-- ["ahmedkhalf/project.nvim"] = {
+	-- 	config = function()
+	-- 		require("custom.plugins.project")
+	-- 	end,
+	-- },
+	--
+	["nvim-telescope/telescope-project.nvim"] = {
+		requires = "nvim-telescope/telescope.nvim",
 	},
 	["glepnir/lspsaga.nvim"] = {
 		config = function()
@@ -486,11 +468,53 @@ return {
 	},
 	["rafamadriz/friendly-snippets"] = {},
 	["f-person/git-blame.nvim"] = {},
-	["lewis6991/satellite.nvim"] = {
-		config = function()
-			require("satellite").setup()
-		end,
-	},
+	-- ["folke/noice.nvim"] = {
+	-- 	config = function()
+	-- 		require("noice").setup({
+	-- 			lsp = {
+	-- 				hover = {
+	-- 					enabled = false,
+	-- 				},
+	-- 				signature = {
+	-- 					enabled = false,
+	-- 				},
+	-- 			},
+	-- 			notify = {
+	-- 				enabled = false,
+	-- 			},
+	-- 			views = {
+	-- 				cmdline_popup = {
+	-- 					position = {
+	-- 						row = 5,
+	-- 						col = "50%",
+	-- 					},
+	-- 					size = {
+	-- 						width = 60,
+	-- 						height = "auto",
+	-- 					},
+	-- 				},
+	-- 				popupmenu = {
+	-- 					relative = "editor",
+	-- 					position = {
+	-- 						row = 8,
+	-- 						col = "50%",
+	-- 					},
+	-- 					size = {
+	-- 						width = 60,
+	-- 						height = 10,
+	-- 					},
+	-- 					border = {
+	-- 						style = "rounded",
+	-- 						padding = { 0, 1 },
+	-- 					},
+	-- 					win_options = {
+	-- 						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	["https://gitlab.com/yorickpeterse/nvim-window"] = {
 		config = function()
 			require("nvim-window").setup({
@@ -535,6 +559,59 @@ return {
 				-- The border style to use for the floating window.
 				border = "single",
 			})
+		end,
+	},
+	["kevinhwang91/nvim-ufo"] = {
+		requires = "kevinhwang91/promise-async",
+		config = function()
+			local handler = function(virtText, lnum, endLnum, width, truncate)
+				local newVirtText = {}
+				local suffix = ("  %d "):format((endLnum - lnum) + 1)
+				local sufWidth = vim.fn.strdisplaywidth(suffix)
+				local targetWidth = width - sufWidth
+				local curWidth = 0
+				for _, chunk in ipairs(virtText) do
+					local chunkText = chunk[1]
+					local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+					if targetWidth > curWidth + chunkWidth then
+						table.insert(newVirtText, chunk)
+					else
+						chunkText = truncate(chunkText, targetWidth - curWidth)
+						local hlGroup = chunk[2]
+						table.insert(newVirtText, { chunkText, hlGroup })
+						chunkWidth = vim.fn.strdisplaywidth(chunkText)
+						-- str width returned from truncate() may less than 2nd argument, need padding
+						if curWidth + chunkWidth < targetWidth then
+							suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+						end
+						break
+					end
+					curWidth = curWidth + chunkWidth
+				end
+				table.insert(newVirtText, { suffix, "MoreMsg" })
+				return newVirtText
+			end
+			require("ufo").setup({
+				provider_selector = function(bufnr, filetype, buftype)
+					return { "lsp", "indent" }
+				end,
+				fold_virt_text_handler = handler,
+			})
+			vim.o.foldcolumn = "1" -- '0' is not bad
+			vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+			vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+			vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+			vim.keymap.set("n", "K", function()
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					-- choose one of coc.nvim and nvim lsp
+					vim.lsp.buf.hover()
+				end
+			end)
 		end,
 	},
 }

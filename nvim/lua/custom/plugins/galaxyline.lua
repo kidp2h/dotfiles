@@ -3,7 +3,6 @@ local gl = require("galaxyline")
 local colors = require("galaxyline.theme").default
 local condition = require("galaxyline.condition")
 local gls = gl.section
-local navic = require("nvim-navic")
 
 gl.short_line_list = { "NvimTree", "vista", "dbui", "packer" }
 

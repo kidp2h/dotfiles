@@ -31,17 +31,7 @@ M.truzen = {
 
 M.projects = {
 	n = {
-		["<C-p>"] = { "<cmd> Telescope projects <CR>", "Switch Projects" },
-	},
-}
-
-M.Aerial = {
-	n = {
-		["<leader>a"] = { "<cmd>AerialToggle!<CR>", "Toggle Aerial" },
-		["{"] = { "<cmd>AerialPrev<CR>", "Aerial Previous" },
-		["}"] = { "<cmd>AerialNext<CR>", "Aerial Next" },
-		["[["] = { "<cmd>AerialPrevUp<CR>", "Aerial Prev Up Tree" },
-		["]]"] = { "<cmd>AerialNextUp<CR>", "Aerial Next Up Tree" },
+		["<C-p>"] = { "<cmd> Telescope project <CR>", "Switch Projects" },
 	},
 }
 
@@ -186,7 +176,7 @@ M.lspconfig = {
 			},
 		},
 
-		["[e"] = {
+		["<C-[>"] = {
 			"<cmd>Lspsaga diagnostic_jump_prev<CR>",
 			"goto prev",
 			opts = {
@@ -194,7 +184,7 @@ M.lspconfig = {
 			},
 		},
 
-		["e]"] = {
+		["<C-]>"] = {
 			"<cmd>Lspsaga diagnostic_jump_next<CR>",
 			"goto next",
 			opts = {
@@ -229,7 +219,7 @@ M.lspconfig = {
 M.windows = {
 	n = {
 
-		["<C-w>"] = {
+		["<A-w>"] = {
 			"<cmd>lua require'nvim-window'.pick()<CR>",
 			"Pick Window",
 			opts = {

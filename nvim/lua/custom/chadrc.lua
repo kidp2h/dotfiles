@@ -9,7 +9,7 @@ M.ui = {
 
 	-- highlight groups!
 	hl_add = require("custom.highlights").new_hlgroups,
-	hl_override = require("custom.highlights").overriden_hlgroups,
+	hl_override = require("custom.highlights").overridden_hlgroups,
 	transparency = true,
 }
 

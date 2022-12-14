@@ -16,7 +16,7 @@ lspsaga.init_lsp_saga({
 		-- ## only valid after set `show_file = true`
 		file_formatter = "",
 		click_support = function(node, clicks, button, modifiers)
-			-- To see all avaiable details: vim.pretty_print(node)
+			-- To see all available details: vim.pretty_print(node)
 			local st = node.range.start
 			local en = node.range["end"]
 			if button == "l" then

@@ -38,7 +38,7 @@ super + s
 
 # Launch Apps
 super + shift + {f,w,e}
-	{thunar,chromium,geany}
+	{thunar,brave,geany}
 
 # Terminal Apps
 ctrl + alt + {v,r,h}
@@ -104,8 +104,8 @@ ctrl + alt + Escape
     xkill
 
 # Quit/Restart bspwm
-ctrl + shift + {q,r}
-	bspc {quit,wm -r}
+# ctrl + shift + {q,r}
+# 	bspc {quit,wm -r}
 	
 # Split horizontal, vertical or cancel
 super + {h,v,q}
