@@ -1,20 +1,20 @@
 
 configuration {
-    font:                           "Iosevka 10";
+    font:                           "Iosevka 12";
     show-icons:                     false;
     disable-history:                false;
 	click-to-exit: 					true;
 }
 
-@import "colors.rasi"
+@import "../colors.rasi"
 
 window {
     transparency:                   "real";
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
     border:                  		1px;
-    border-color:                  	@selected;
-    border-radius:                  0px;
+    border-color:                  	@bg;
+    border-radius:                  10px;
     width:                          400px;
     height:                         420px;
     location:                       center;
@@ -27,30 +27,30 @@ prompt {
     enabled: 						true;
 	margin: 						0px 0px 0px 8px;
     padding:    					6px 0px 6px 0px;
-	background-color: 				@background;
-	text-color: 					@foreground;
+	background-color: 				@bg;
+	text-color: 					@fg;
     border:                  		0px 0px 1px 0px;
-    border-color:                  	@selected;
-    border-radius:                  0px;
+    border-color:                  	@bg;
+    border-radius:                  10px;
 }
 
 textbox-prompt-colon {
 	expand: 						false;
 	str: 							"直";
     border-radius:                  0px;
-    background-color:               @highlight;
-    text-color:                     @background;
+    background-color:               @bg;
+    text-color:                     @fg;
     padding:    					6px 10px 6px 10px;
-	font:							"Iosevka Nerd Font 10";
+	font:							"Iosevka Nerd Font 12";
 }
 
 entry {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
     border:                  		0px 0px 1px 0px;
     border-radius:                  0px;
-    border-color:                  	@selected;
-    placeholder-color:              @foreground;
+    border-color:                  	@bg;
+    placeholder-color:              @fg;
     placeholder:                    "";
     expand:                         true;
     horizontal-align:               0;
@@ -61,8 +61,8 @@ entry {
 inputbar {
 	children: 						[ textbox-prompt-colon, prompt, entry ];
     spacing:                        0;
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
     expand:                         false;
     margin:                         0px 0px 0px 0px;
     padding:                        0px;
@@ -70,14 +70,14 @@ inputbar {
 }
 
 case-indicator {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
     spacing:                        0;
 }
 
 
 listview {
-    background-color:               @background;
+    background-color:               @bg;
     columns:                        1;
     lines:							7;
     spacing:                        4px;
@@ -87,15 +87,15 @@ listview {
 }
 
 mainbox {
-    background-color:               @background;
+    background-color:               @bg;
     children:                       [ inputbar, listview ];
     spacing:                       	10px;
     padding:                        10px;
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0px;
     padding:                        5px;
@@ -108,6 +108,7 @@ element-icon {
     vertical-align:                 0.5;
     size:                           0px;
     border:                         0px;
+    text-color: @black;
 }
 
 element-text {
@@ -122,30 +123,30 @@ element-text {
 element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
-    text-color:                     @foreground;
+    text-color:                     @fg;
     border-radius:                  0px;
 }
 
 element normal.active,
 element alternate.active {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
 }
 
 element selected {
-    background-color:               @selected;
-    text-color:                     @background;
-    border:                  		0px;
-    border-radius:                  0px;
+    background-color:               @bg;
+    text-color:                     @selected;
+    border:                  		2px;
+    border-radius:                  5px;
     border-color:                  	@selected;
 }
 
 element selected.urgent {
     background-color:               @urgent;
-    text-color:                     @foreground;
+    text-color:                     @fg;
 }
 
 element selected.active {
-    background-color:               @background;
-    color:                          @foreground;
+    background-color:               @bg;
+    color:                          @fg;
 }

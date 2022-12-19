@@ -14,4 +14,6 @@
   foreground:       #FFFFFF;
   on:               #00000000;
   off:              #00000000;
+  selected: #ff4c30;
+  black: #000000;
 }

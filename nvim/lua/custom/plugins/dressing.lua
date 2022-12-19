@@ -33,7 +33,6 @@ require("dressing").setup({
 			-- Window transparency (0-100)
 			winblend = 0,
 			-- Change default highlight groups (see :help winhl)
-			winhighlight = 0,
 		},
 		-- Set to `false` to disable
 		mappings = {
@@ -121,7 +120,6 @@ require("dressing").setup({
 			win_options = {
 
 				-- Change default highlight groups (see :help winhl)
-				winhighlight = 0,
 
 				winblend = 10,
 			},

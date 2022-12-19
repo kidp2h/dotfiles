@@ -36,8 +36,8 @@ prompt {
 }
 
 entry {
-    background-color:               @bg2;
-    text-color:                     #FFFFFF;
+    background-color:               @bg;
+    text-color:                     @selected;
     placeholder-color:              #FFFFFF;
     expand:                         true;
     horizontal-align:               0;
@@ -45,7 +45,7 @@ entry {
     padding:                        12px 10px 10px 10px;
     margin:                         0px 250px 0px 0px;
     border-radius:                  0px 50px 50px 0px;
-    blink:                          true;
+    blink:                          false;
 }
 
 inputbar {
@@ -107,7 +107,7 @@ element-text {
 element selected {
     background-color:               @bg4;
     text-color:                     #ff4c30;
-	border:							0px;
-    border-radius:                  0px;
-    border-color:                  	@bg;
+	border:							2px;
+    border-radius:                  5px;
+    border-color:                  	@selected;
 }

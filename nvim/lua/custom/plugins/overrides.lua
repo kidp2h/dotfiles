@@ -26,6 +26,9 @@ M.treesitter = {
 		enable = true,
 	},
 	auto_install = true,
+	context_commentstring = {
+		enable = true,
+	},
 }
 
 M.whichkey = {
@@ -38,7 +41,7 @@ M.nvimtree = {
 	},
 	view = {
 		float = {
-			enable = false,
+			enable = true,
 			open_win_config = {
 				relative = "cursor",
 				border = "rounded",
