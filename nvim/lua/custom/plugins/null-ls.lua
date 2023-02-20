@@ -29,6 +29,7 @@ local sources = {
 			"markdown",
 			"graphql",
 			"php",
+			"clang_format",
 		},
 	}),
 	-- Lua
@@ -43,7 +44,7 @@ local sources = {
 	-- b.formatting.clang_format,
 
 	-- docker
-	b.diagnostics.hadolint,
+	-- b.diagnostics.hadolint,
 
 	-- php
 	-- b.formatting.phpcsfixer,

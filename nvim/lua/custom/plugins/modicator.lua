@@ -1,22 +1,49 @@
-local present, modicator = pcall(require, "modicator")
+local modicator = require("modicator")
 
-if not present then
-	return
-end
-
+-- NOTE: Modicator requires line_numbers and cursorline to be enabled
 modicator.setup({
-	line_numbers = true,
-	cursorline = true,
+	-- Show warning if any required option is missing
+	show_warnings = true,
 	highlights = {
+		-- Default options for bold/italic. You can override these individually
+		-- for each mode if you'd like as seen below.
+		defaults = {
+			foreground = "#f8f8f2",
+			background = "#000000",
+			bold = true,
+			italic = true,
+		},
+		-- Color and bold/italic options for each mode. You can add a bold and/or
+		-- italic key pair to override the default highlight for a specific mode if
+		-- you would like.
 		modes = {
-			["i"] = modicator.get_highlight_fg("Question"),
-			["v"] = modicator.get_highlight_fg("Type"),
-			["V"] = modicator.get_highlight_fg("Type"),
-			["�"] = modicator.get_highlight_fg("Type"),
-			["s"] = modicator.get_highlight_fg("Keyword"),
-			["S"] = modicator.get_highlight_fg("Keyword"),
-			["R"] = modicator.get_highlight_fg("Title"),
-			["c"] = modicator.get_highlight_fg("Constant"),
+			["n"] = {
+				foreground = "#f8f8f2",
+			},
+			["i"] = {
+				foreground = "#50fa7b",
+			},
+			["v"] = {
+				foreground = "#62d6e8",
+			},
+			["V"] = {
+				foreground = "#62d6e8",
+			},
+			["�"] = { -- This symbol is the ^V character
+				foreground = "#62d6e8",
+			},
+			["s"] = {
+				foreground = "#ff86d3",
+			},
+			["S"] = {
+				foreground = "#ff86d3",
+			},
+			["R"] = {
+				foreground = "#50fa7b",
+			},
+			["c"] = {
+				foreground = "#c197fd",
+			},
 		},
 	},
 })

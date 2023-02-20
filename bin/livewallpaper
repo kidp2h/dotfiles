@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 
-VIDEO="$HOME/Videos/wp/1.mp4"
-xwinwrap -g 1366x768+0+0 -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid %WID --loop --no-audio $VIDEO
+VIDEO="$HOME/Videos/wp/2.mp4"
+
+xrandr=$(xrandr --query)
+if (xrandr --query | grep "HDMI-1 connected"); then
+	xwinwrap -g 1920x1080+0+0 -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid %WID --loop --no-audio $VIDEO &
+	xwinwrap -g 1920x1080+1920+0 -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid %WID --loop --no-audio $VIDEO &
+else
+	xwinwrap -g 1920x1080+0+0 -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid %WID --loop --no-audio $VIDEO
+fi

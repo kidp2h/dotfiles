@@ -4,7 +4,9 @@ if not present then
 	return
 end
 
-local options = {}
+local options = {
+	background_colour = "#aaaaaa",
+}
 
 notify.setup(options)
 

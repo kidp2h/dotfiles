@@ -190,12 +190,37 @@ M.nvterm = {
 M.cmp = {
 
 	window = {
-		completion = {
-			border = "rounded",
-			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
-		},
+		-- completion = {
+		-- 	border = "rounded",
+		-- 	winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		-- },
 		documentation = {
 			border = "rounded",
+		},
+
+		formatting = {
+			fields = { "kind", "abbr", "menu" },
+			format = function(_, vim_item)
+				local icons = require("nvchad_ui.icons").lspkind
+				vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+				local item = _:get_completion_item()
+				if item.detail then
+					vim_item.menu = item.detail
+				end
+				-- vim_item.menu = ({
+				-- 	nvim_lsp = "(LSP)",
+				-- 	emoji = "(Emoji)",
+				-- 	path = "(Path)",
+				-- 	calc = "(Calc)",
+				-- 	cmp_tabnine = "(Tabnine)",
+				-- 	vsnip = "(Snippet)",
+				-- 	luasnip = "(Snippet)",
+				-- 	buffer = "(Buffer)",
+				-- 	tmux = "(TMUX)",
+				-- 	copilot = "(Copilot)",
+				-- 	treesitter = "(TreeSitter)",
+				-- })[_.source.name]
+			end,
 		},
 	},
 }
@@ -204,6 +229,10 @@ M.ui = {
 		separator_style = "default", -- default/round/block/arrow
 		overriden_modules = function()
 			local X = {}
+
+			X.mode = function()
+				return ""
+			end
 			X.modes = function()
 				return ""
 			end

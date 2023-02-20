@@ -126,7 +126,10 @@ exec mpd &
 
 # Start bspwm scripts
 bspcolors
-bspbar
+# bspbar
+launch-polybar
+multiple-screen
+
 bspcomp
 bspdunst
 

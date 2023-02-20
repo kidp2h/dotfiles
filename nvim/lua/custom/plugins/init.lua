@@ -5,21 +5,21 @@ return {
 	----------------------------------------- default plugins ------------------------------------------
 	--
 	["NvChad/ui"] = {
-		-- after = "base46",
-		-- module = "nvchad_ui",
-		-- config = function()
-		-- 	local present, nvchad_ui = pcall(require, "nvchad_ui")
-		--
-		-- 	if present then
-		-- 		nvchad_ui.setup({
-		-- 			statusline = nil,
-		-- 			tabufline = {
-		-- 				enable = false,
-		-- 			},
-		-- 		})
-		-- 	end
-		-- end,
 		override_options = overrides.ui,
+	},
+	["jackMort/ChatGPT.nvim"] = {
+		opt = true,
+		keys = { "<leader>gpt" },
+		module_pattern = { "chatgpt*" },
+		after = { "nui.nvim", "telescope.nvim" },
+		config = function()
+			require("custom.plugins.gpt")
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
 	},
 
 	["goolord/alpha-nvim"] = {
@@ -42,10 +42,6 @@ return {
 	["hrsh7th/nvim-cmp"] = {
 		override_options = overrides.cmp,
 	},
-	-- override default configs
-	["kyazdani42/nvim-tree.lua"] = {
-		override_options = overrides.nvimtree,
-	},
 
 	["nvim-treesitter/nvim-treesitter"] = {
 		override_options = overrides.treesitter,
@@ -54,7 +50,6 @@ return {
 	["williamboman/mason.nvim"] = {
 		override_options = overrides.mason,
 	},
-
 	--------------------------------------------- custom plugins ----------------------------------------------
 	-- autoclose tags in html, jsx only
 	["windwp/nvim-ts-autotag"] = {
@@ -182,12 +177,6 @@ return {
 			require("custom.plugins.twilight")
 		end,
 	},
-	-- ["SmiteshP/nvim-navic"] = {
-	-- 	requires = "neovim/nvim-lspconfig",
-	-- 	config = function()
-	-- 		require("custom.plugins.navic")
-	-- 	end,
-	-- },
 	["stevearc/dressing.nvim"] = {
 		config = function()
 			require("custom.plugins.dressing")
@@ -226,58 +215,29 @@ return {
 	["gelguy/wilder.nvim"] = {
 		rocks = "pcre2",
 		config = function()
-			local present, wilder = pcall(require, "wilder")
-			if not present then
-				return
-			end
-			wilder.setup({ modes = { ":", "/", "?" } })
-			wilder.set_option(
-				"renderer",
-				wilder.popupmenu_renderer(wilder.popupmenu_palette_theme({
-					-- 'single', 'double', 'rounded' or 'solid'
-					-- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
-					border = "rounded",
-					max_height = "75%", -- max height of the palette
-					min_height = 0, -- set to the same as 'max_height' for a fixed height window
-					prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
-					reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
-					left = { " ", wilder.popupmenu_devicons() },
-					highlighter = {
-						wilder.lua_pcre2_highlighter(), -- requires `luarocks install pcre2`
-						wilder.lua_fzy_highlighter(), -- requires fzy-lua-native vim plugin found
-						-- at https://github.com/romgrk/fzy-lua-native
-					},
-					highlights = {
-						accent = wilder.make_hl(
-							"WilderAccent",
-							"Pmenu",
-							{ { a = 1 }, { a = 1 }, { foreground = "#f4468f" } }
-						),
-					},
-				}))
-			)
+			require("custom.plugins.wilder")
 		end,
 	},
-	["onsails/lspkind.nvim"] = {
-
-		config = function()
-			local lspkind = require("lspkind")
-			require("cmp").setup({
-				formatting = {
-					format = lspkind.cmp_format({
-						mode = "symbol", -- show only symbol annotations
-						maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-						-- The function below will be called before any actual modifications from lspkind
-						-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-						before = function(entry, vim_item)
-							return vim_item
-						end,
-					}),
-				},
-			})
-		end,
-	},
+	-- ["onsails/lspkind.nvim"] = {
+	--
+	-- 	config = function()
+	-- 		local lspkind = require("lspkind")
+	-- 		require("cmp").setup({
+	-- 			formatting = {
+	-- 				format = lspkind.cmp_format({
+	-- 					mode = "symbol", -- show only symbol annotations
+	-- 					maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+	--
+	-- 					-- The function below will be called before any actual modifications from lspkind
+	-- 					-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+	-- 					before = function(entry, vim_item)
+	-- 						return vim_item
+	-- 					end,
+	-- 				}),
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	["jamestthompson3/nvim-remote-containers"] = {},
 	["linty-org/key-menu.nvim"] = {
 		config = function()
@@ -292,251 +252,12 @@ return {
 	},
 	["lvimuser/lsp-inlayhints.nvim"] = {
 		config = function()
-			require("lsp-inlayhints").setup({
-				inlay_hints = {
-					parameter_hints = {
-						show = true,
-						prefix = "<- ",
-						separator = ", ",
-						remove_colon_start = false,
-						remove_colon_end = true,
-					},
-					type_hints = {
-						-- type and other hints
-						show = true,
-						prefix = "",
-						separator = ", ",
-						remove_colon_start = false,
-						remove_colon_end = false,
-					},
-					only_current_line = false,
-					-- separator between types and parameter hints. Note that type hints are
-					-- shown before parameter
-					labels_separator = "  ",
-					-- whether to align to the length of the longest line in the file
-					max_len_align = false,
-					-- padding from the left if max_len_align is true
-					max_len_align_padding = 1,
-					-- highlight group
-					highlight = "LspInlayHint",
-				},
-				enabled_at_startup = true,
-				debug_mode = false,
-			})
+			require("custom.plugins.lsp-inlayhints")
 		end,
 	},
-	-- ["glepnir/galaxyline.nvim"] = {
-	-- 	branch = "main",
-	-- 	config = function()
-	-- 		require("custom.plugins.galaxyline")
-	-- 	end,
-	-- },
 	["nvim-lualine/lualine.nvim"] = {
 		config = function()
-			local lualine = require("lualine")
-
-			local colors = {
-				bg = "#00000000",
-				fg = "#bbc2cf",
-				yellow = "#ECBE7B",
-				cyan = "#008080",
-				darkblue = "#081633",
-				green = "#98be65",
-				orange = "#FF8800",
-				violet = "#a9a1e1",
-				magenta = "#c678dd",
-				blue = "#51afef",
-				red = "#ec5f67",
-			}
-
-			local conditions = {
-				buffer_not_empty = function()
-					return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
-				end,
-				hide_in_width = function()
-					return vim.fn.winwidth(0) > 80
-				end,
-				check_git_workspace = function()
-					local filepath = vim.fn.expand("%:p:h")
-					local gitdir = vim.fn.finddir(".git", filepath .. ";")
-					return gitdir and #gitdir > 0 and #gitdir < #filepath
-				end,
-			}
-
-			-- Config
-			local config = {
-				options = {
-					-- Disable sections and component separators
-					component_separators = "",
-					section_separators = "",
-					theme = {
-						-- We are going to use lualine_c an lualine_x as left and
-						-- right section. Both are highlighted by c theme .  So we
-						-- are just setting default looks o statusline
-						normal = { c = { fg = colors.fg, bg = colors.bg } },
-						inactive = { c = { fg = colors.fg, bg = colors.bg } },
-					},
-					disabled_filetypes = {
-						statusline = { "NvimTree" },
-					},
-					globalstatus = true,
-				},
-				sections = {
-					-- these are to remove the defaults
-					lualine_a = {},
-					lualine_b = {},
-					lualine_y = {},
-					lualine_z = {},
-					-- These will be filled later
-					lualine_c = {},
-					lualine_x = {},
-				},
-				inactive_sections = {
-					-- these are to remove the defaults
-					lualine_a = {},
-					lualine_b = {},
-					lualine_y = {},
-					lualine_z = {},
-					lualine_c = {},
-					lualine_x = {},
-				},
-			}
-
-			-- Inserts a component in lualine_c at left section
-			local function ins_left(component)
-				table.insert(config.sections.lualine_c, component)
-			end
-
-			-- Inserts a component in lualine_x ot right section
-			local function ins_right(component)
-				table.insert(config.sections.lualine_x, component)
-			end
-
-			ins_left({
-				-- mode component
-				function()
-					return ""
-				end,
-				color = function()
-					-- auto change color according to neovims mode
-					local mode_color = {
-						n = colors.red,
-						i = colors.green,
-						v = colors.blue,
-						[""] = colors.blue,
-						V = colors.blue,
-						c = colors.magenta,
-						no = colors.red,
-						s = colors.orange,
-						S = colors.orange,
-						[""] = colors.orange,
-						ic = colors.yellow,
-						R = colors.violet,
-						Rv = colors.violet,
-						cv = colors.red,
-						ce = colors.red,
-						r = colors.cyan,
-						rm = colors.cyan,
-						["r?"] = colors.cyan,
-						["!"] = colors.red,
-						t = colors.red,
-					}
-					return { fg = mode_color[vim.fn.mode()] }
-				end,
-				padding = { right = 1 },
-			})
-
-			ins_left({
-				-- filesize component
-				"filesize",
-				cond = conditions.buffer_not_empty,
-			})
-
-			ins_left({
-				"filename",
-				cond = conditions.buffer_not_empty,
-				color = { fg = colors.magenta, gui = "bold" },
-			})
-
-			ins_left({ "location" })
-
-			ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
-
-			ins_left({
-				"diagnostics",
-				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = " ", info = " " },
-				diagnostics_color = {
-					color_error = { fg = colors.red },
-					color_warn = { fg = colors.yellow },
-					color_info = { fg = colors.cyan },
-				},
-			})
-
-			-- Insert mid section. You can make any number of sections in neovim :)
-			-- for lualine it's any number greater then 2
-			ins_left({
-				function()
-					return "%="
-				end,
-			})
-
-			ins_left({
-				-- Lsp server name .
-				function()
-					local msg = "No Active Lsp"
-					local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-					local clients = vim.lsp.get_active_clients()
-					if next(clients) == nil then
-						return msg
-					end
-					for _, client in ipairs(clients) do
-						local filetypes = client.config.filetypes
-						if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-							return client.name
-						end
-					end
-					return msg
-				end,
-				icon = " LSP:",
-				color = { fg = colors.cyan, gui = "bold" },
-			})
-
-			-- Add components to right sections
-			ins_right({
-				"o:encoding", -- option component same as &encoding in viml
-				fmt = string.upper, -- I'm not sure why it's upper case either ;)
-				cond = conditions.hide_in_width,
-				color = { fg = colors.green, gui = "bold" },
-			})
-
-			ins_right({
-				"fileformat",
-				fmt = string.upper,
-				icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-				color = { fg = colors.green, gui = "bold" },
-			})
-
-			ins_right({
-				"branch",
-				icon = "",
-				color = { fg = colors.violet, gui = "bold" },
-			})
-
-			ins_right({
-				"diff",
-				-- Is it me or the symbol for modified us really weird
-				symbols = { added = " ", modified = "柳 ", removed = " " },
-				diff_color = {
-					added = { fg = colors.green },
-					modified = { fg = colors.orange },
-					removed = { fg = colors.red },
-				},
-				cond = conditions.hide_in_width,
-			})
-
-			-- Now don't forget to initialize lualine
-			lualine.setup(config)
+			require("custom.plugins.lualine")
 		end,
 	},
 
@@ -569,32 +290,7 @@ return {
 			},
 		},
 	},
-	-- ["b0o/incline.nvim"] = {
-	-- 	config = function()
-	-- 		require("custom.plugins.incline")
-	-- 	end,
-	-- },
-
-	-- ["anuvyklack/windows.nvim"] = {
-	--
-	-- 	requires = {
-	-- 		"anuvyklack/middleclass",
-	-- 		"anuvyklack/animation.nvim",
-	-- 	},
-	-- 	config = function()
-	-- 		vim.opt.winwidth = 10
-	-- 		vim.opt.winminwidth = 10
-	-- 		vim.opt.equalalways = false
-	-- 		require("windows").setup()
-	-- 	end,
-	-- },
 	["kdheepak/lazygit.nvim"] = {},
-	-- ["stevearc/aerial.nvim"] = {
-	-- 	config = function()
-	-- 		require("custom.plugins.aerial")
-	-- 	end,
-	-- },
-	-- ["tveskag/nvim-blame-line"] = {},
 	["akinsho/git-conflict.nvim"] = {
 		config = function()
 			require("git-conflict").setup({
@@ -661,12 +357,6 @@ return {
 			require("hlslens").setup()
 		end,
 	},
-	-- ["ahmedkhalf/project.nvim"] = {
-	-- 	config = function()
-	-- 		require("custom.plugins.project")
-	-- 	end,
-	-- },
-	--
 	["nvim-telescope/telescope-project.nvim"] = {
 		requires = "nvim-telescope/telescope.nvim",
 	},
@@ -674,6 +364,7 @@ return {
 		config = function()
 			require("custom.plugins.lspsaga")
 		end,
+		commit = "707c9399b1cbe063c6942604209674edf1b3cf2e",
 	},
 	["folke/tokyonight.nvim"] = {},
 	["melkster/modicator.nvim"] = {
@@ -688,158 +379,33 @@ return {
 	},
 	["rafamadriz/friendly-snippets"] = {},
 	["f-person/git-blame.nvim"] = {},
-	-- ["folke/noice.nvim"] = {
-	-- 	config = function()
-	-- 		require("noice").setup({
-	-- 			lsp = {
-	-- 				hover = {
-	-- 					enabled = false,
-	-- 				},
-	-- 				signature = {
-	-- 					enabled = false,
-	-- 				},
-	-- 			},
-	-- 			notify = {
-	-- 				enabled = false,
-	-- 			},
-	-- 			views = {
-	-- 				cmdline_popup = {
-	-- 					position = {
-	-- 						row = 5,
-	-- 						col = "50%",
-	-- 					},
-	-- 					size = {
-	-- 						width = 60,
-	-- 						height = "auto",
-	-- 					},
-	-- 				},
-	-- 				popupmenu = {
-	-- 					relative = "editor",
-	-- 					position = {
-	-- 						row = 8,
-	-- 						col = "50%",
-	-- 					},
-	-- 					size = {
-	-- 						width = 60,
-	-- 						height = 10,
-	-- 					},
-	-- 					border = {
-	-- 						style = "rounded",
-	-- 						padding = { 0, 1 },
-	-- 					},
-	-- 					win_options = {
-	-- 						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	["folke/noice.nvim"] = {
+		config = function()
+			require("custom.plugins.noice")
+		end,
+	},
 	["https://gitlab.com/yorickpeterse/nvim-window"] = {
 		config = function()
-			require("nvim-window").setup({
-				-- The characters available for hinting windows.
-				chars = {
-					"a",
-					"b",
-					"c",
-					"d",
-					"e",
-					"f",
-					"g",
-					"h",
-					"i",
-					"j",
-					"k",
-					"l",
-					"m",
-					"n",
-					"o",
-					"p",
-					"q",
-					"r",
-					"s",
-					"t",
-					"u",
-					"v",
-					"w",
-					"x",
-					"y",
-					"z",
-				},
-
-				-- A group to use for overwriting the Normal highlight group in the floating
-				-- window. This can be used to change the background color.
-				normal_hl = "Normal",
-
-				-- The highlight group to apply to the line that contains the hint characters.
-				-- This is used to make them stand out more.
-				hint_hl = "Bold",
-
-				-- The border style to use for the floating window.
-				border = "single",
-			})
+			require("custom.plugins.nvim-window")
 		end,
 	},
 	["kevinhwang91/nvim-ufo"] = {
 		requires = "kevinhwang91/promise-async",
 		config = function()
-			local handler = function(virtText, lnum, endLnum, width, truncate)
-				local newVirtText = {}
-				local suffix = ("  %d "):format((endLnum - lnum) + 1)
-				local sufWidth = vim.fn.strdisplaywidth(suffix)
-				local targetWidth = width - sufWidth
-				local curWidth = 0
-				for _, chunk in ipairs(virtText) do
-					local chunkText = chunk[1]
-					local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-					if targetWidth > curWidth + chunkWidth then
-						table.insert(newVirtText, chunk)
-					else
-						chunkText = truncate(chunkText, targetWidth - curWidth)
-						local hlGroup = chunk[2]
-						table.insert(newVirtText, { chunkText, hlGroup })
-						chunkWidth = vim.fn.strdisplaywidth(chunkText)
-						-- str width returned from truncate() may less than 2nd argument, need padding
-						if curWidth + chunkWidth < targetWidth then
-							suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-						end
-						break
-					end
-					curWidth = curWidth + chunkWidth
-				end
-				table.insert(newVirtText, { suffix, "MoreMsg" })
-				return newVirtText
-			end
-			require("ufo").setup({
-				provider_selector = function(bufnr, filetype, buftype)
-					return { "lsp", "indent" }
-				end,
-				fold_virt_text_handler = handler,
-			})
-			vim.o.foldcolumn = "1" -- '0' is not bad
-			vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-			vim.o.foldlevelstart = 99
-			vim.o.foldenable = true
-			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-			vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-			vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-			vim.keymap.set("n", "K", function()
-				local winid = require("ufo").peekFoldedLinesUnderCursor()
-				if not winid then
-					-- choose one of coc.nvim and nvim lsp
-					vim.lsp.buf.hover()
-				end
-			end)
+			require("custom.plugins.ufo")
 		end,
 	},
 	["kevinhwang91/rnvimr"] = {
 		cmd = "RnvimrToggle",
 		config = function()
 			vim.g.rnvimr_draw_border = 1
-			vim.g.rnvimr_pick_enable = 1
+			ufo.luaim.g.rnvimr_pick_enable = 1
 			vim.g.rnvimr_bw_enable = 1
+		end,
+	},
+	["nvim-treesitter/nvim-treesitter-textobjects"] = {
+		config = function()
+			require("custom.plugins.textobjects")
 		end,
 	},
 	["camspiers/snap"] = {
@@ -879,5 +445,102 @@ return {
 			})
 		end,
 	},
+
+	["emileferreira/nvim-strict"] = {
+		config = function()
+			require("custom.plugins.strict")
+		end,
+	},
+	["hrsh7th/cmp-nvim-lsp"] = {},
+	["tzachar/cmp-tabnine"] = {
+		run = "./install.sh",
+		requires = "hrsh7th/nvim-cmp",
+		config = function()
+			local tabnine = require("cmp_tabnine.config")
+
+			tabnine:setup({
+				max_lines = 1000,
+				max_num_results = 20,
+				sort = true,
+				run_on_every_keystroke = true,
+				snippet_placeholder = "..",
+				ignored_file_types = {
+					-- default is not to ignore
+					-- uncomment to ignore in lua:
+					-- lua = true
+				},
+				show_prediction_strength = false,
+			})
+		end,
+	},
 	["romgrk/fzy-lua-native"] = {},
+	["voldikss/vim-floaterm"] = {},
+
+	["ray-x/cmp-treesitter"] = {},
+	["hrsh7th/cmp-emoji"] = {},
+
+	["hrsh7th/cmp-calc"] = {},
+	["justinhj/battery.nvim"] = {
+		config = function()
+			local battery = require("battery")
+			battery.setup({
+				update_rate_seconds = 30, -- Number of seconds between checking battery status
+				show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
+				show_plugged_icon = true, -- If true show a cable icon alongside the battery icon when plugged in
+				show_unplugged_icon = true, -- When true show a diconnected cable icon when not plugged in
+				show_percent = true, -- Whether or not to show the percent charge remaining in digits
+				vertical_icons = true, -- When true icons are vertical, otherwise shows horizontal battery icon
+				multiple_battery_selection = 1, -- Which battery to choose when multiple found. "max" or "maximum", "min" or "minimum" or a number to pick the nth battery found (currently linux acpi only)
+			})
+		end,
+	},
+
+	["nvim-neo-tree/neo-tree.nvim"] = {
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			{
+				-- only needed if you want to use the commands with "_with_window_picker" suffix
+				"s1n7ax/nvim-window-picker",
+				tag = "v1.*",
+				config = function()
+					require("window-picker").setup({
+						autoselect_one = true,
+						include_current = false,
+						filter_rules = {
+							-- filter using buffer options
+							bo = {
+								-- if the file type is one of following, the window will be ignored
+								filetype = { "neo-tree", "neo-tree-popup", "notify" },
+
+								-- if the buffer type is one of following, the window will be ignored
+								buftype = { "terminal", "quickfix" },
+							},
+						},
+						other_win_hl_color = "#e35e4f",
+					})
+				end,
+			},
+			{
+				"mrbjarksen/neo-tree-diagnostics.nvim",
+				module = "neo-tree.sources.diagnostics",
+			},
+		},
+		config = function()
+			require("custom.plugins.neotree")
+		end,
+	},
+	-- ["barrett-ruth/import-cost.nvim"] = {
+	-- 	build = "sh install.sh npm",
+	-- 	config = function()
+	-- 		require("custom.plugins.import-cost")
+	-- 	end,
+	-- },
+	-- ["https://git.sr.ht/~nedia/auto-save.nvim"] = {
+	-- 	config = function()
+	-- 		require("custom.plugins.auto-save")
+	-- 	end,
+	-- },
 }

@@ -5,19 +5,18 @@ if not present then
 end
 
 require("base46").load_highlight("cmp")
-
 vim.opt.completeopt = "menuone,noselect"
-
 local function border(hl_name)
 	return {
-		{ "╭", hl_name },
-		{ "─", hl_name },
-		{ "╮", hl_name },
-		{ "│", hl_name },
-		{ "╯", hl_name },
-		{ "─", hl_name },
-		{ "╰", hl_name },
-		{ "│", hl_name },
+		{ "", hl_name },
+
+		{ "", hl_name },
+		{ "", hl_name },
+		{ "", hl_name },
+		{ "", hl_name },
+		{ "", hl_name },
+		{ "", hl_name },
+		{ "", hl_name },
 	}
 end
 
@@ -32,10 +31,14 @@ end
 
 local options = {
 	window = {
-		completion = {
+		-- completion = {
+		-- 	border = border("CmpBorder"),
+		-- 	-- winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		-- },
+		completion = cmp.config.window.bordered({
 			border = border("CmpBorder"),
-			-- winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
-		},
+			side_padding = 0,
+		}),
 		documentation = {
 			border = border("CmpDocBorder"),
 		},
@@ -46,11 +49,40 @@ local options = {
 		end,
 	},
 	formatting = {
+
+		fields = { "kind", "abbr", "menu" },
 		format = function(_, vim_item)
 			local icons = require("nvchad_ui.icons").lspkind
-			vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+			local duplicates = {
+				buffer = 1,
+				path = 1,
+				nvim_lsp = 0,
+				luasnip = 1,
+			}
+			vim_item.kind = string.format(" %s", icons[vim_item.kind])
+
+			vim_item.menu = ({
+				nvim_lsp = "[🌈] LSP",
+				emoji = "[🤡] Emoji",
+				path = "[🔗] Path",
+				calc = "[🖥️] CALC",
+
+				cmp_tabnine = "[🤖] TabNine",
+				vsnip = "[🚀] Snippet",
+				luasnip = "[💡] Snippet",
+				buffer = "[👾] Buffer",
+				treesitter = "[🌳] Treesitter",
+			})[_.source.name]
+
+			-- if _.source.name == "vsnip" or _.source.name == "nvim_lsp" or _.source.name == "luasnip" then
+			vim_item.dup = duplicates[_.source.name] or 0
+			-- end
+
 			return vim_item
 		end,
+	},
+	experimental = {
+		ghost_text = true,
 	},
 	mapping = {
 		["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -89,11 +121,28 @@ local options = {
 		}),
 	},
 	sources = {
-		{ name = "luasnip" },
-		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "nvim_lua" },
-		{ name = "path" },
+
+		{
+			name = "nvim_lsp",
+			entry_filter = function(entry, ctx)
+				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
+				if kind == "Snippet" and ctx.prev_context.filetype == "java" then
+					return false
+				end
+				if kind == "Text" then
+					return false
+				end
+				return true
+			end,
+		},
+		{ name = "path", max_item_count = 5 },
+		{ name = "luasnip", max_item_count = 10 },
+		{ name = "cmp_tabnine", max_item_count = 15 },
+		{ name = "nvim_lua", max_item_count = 10 },
+		{ name = "buffer", max_item_count = 1 },
+		{ name = "calc", max_item_count = 5 },
+		{ name = "emoji", max_item_count = 5 },
+		{ name = "treesitter", max_item_count = 1 },
 	},
 }
 

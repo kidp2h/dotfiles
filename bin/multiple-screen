@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if type "xrandr"; then
+
+	for m in $(xrandr --query | grep "HDMI-1 connected" | cut -d" " -f1); do
+		xrandr --output eDP-1 --right-of HDMI-1
+		xrandr --output HDMI-1 --mode 1920x1080 --rate 75.00
+	done
+
+fi

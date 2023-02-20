@@ -19,6 +19,7 @@ local options = {
 			"--column",
 			"--smart-case",
 		},
+		theme = "dropdown",
 		prompt_prefix = "   ",
 		selection_caret = "  ",
 		entry_prefix = "  ",
@@ -42,7 +43,7 @@ local options = {
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
 		file_ignore_patterns = { "node_modules" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-		path_display = { "truncate" },
+		path_display = { "smart" },
 		winblend = 0,
 		border = {},
 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -59,6 +60,7 @@ local options = {
 	},
 
 	extensions_list = { "themes", "terms" },
+	pickers = {},
 }
 
 -- check for any override

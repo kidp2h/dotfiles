@@ -21,7 +21,7 @@ window:
   history: 10000
   multiplier: 3
   opacity: 0.5
-  background_opacity: 0.5
+  background_opacity: 1
 # Cursor
 cursor:
   style:

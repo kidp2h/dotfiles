@@ -1,14 +1,63 @@
 local M = {
 
 	new_hlgroups = {
+
+		BufferCurrent = {
+			fg = "red",
+		},
+
+		BufferInactive = {
+			fg = "#222533",
+		},
+
+		CmpItemKindClass = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+
+		CmpItemKindEnum = {
+			bg = "orange",
+			fg = "#222533",
+		},
+
+		CmpItemKindEnumDefault = {
+			bg = "orange",
+			fg = "#222533",
+		},
+
+		CmpItemKindEnumMember = {
+			bg = "orange",
+			fg = "#222533",
+		},
+
+		CmpItemMenu = {
+			bg = "none",
+			fg = "#666771",
+		},
+
+		NotifyBackground = {
+			bg = "red",
+		},
+
+		NeoTreeTabActive = {
+
+			bg = "none",
+			fg = "red",
+		},
+		NeoTreeTabInactive = {
+			bg = "#000000",
+			fg = "#666771",
+		},
 		-- Neorg
 
 		HlSearchLens = {
 			bg = "red",
 		},
 		LspInlayHint = {
-			bg = "#393C4C",
+			bg = "none",
 			fg = "#A7A8AC",
+			bold = true,
+			italic = true,
 		},
 		IlluminatedWordText = {
 			bg = "#353941",
@@ -55,10 +104,6 @@ local M = {
 			bg = "none",
 		},
 		FoldColumn = {
-			bg = "none",
-		},
-		BufferInactive = {
-			fg = "none",
 			bg = "none",
 		},
 		BufferInactiveSign = {
@@ -149,6 +194,165 @@ local M = {
 		},
 		HlSearchLens = {
 			bg = "red",
+		},
+		NeoTreeTabActive = {
+
+			bg = "none",
+			fg = "red",
+		},
+		NeoTreeTabInactive = {
+			bg = "#000000",
+			fg = "#666771",
+		},
+		NotifyBackground = {
+			bg = "red",
+		},
+		CmpItemKind = {
+			bg = "orange",
+			fg = "#222533",
+		},
+		CmpItemKindText = {
+			bg = "yellow",
+			fg = "#222533",
+		},
+
+		CmpItemKindField = {
+			bg = "purple",
+			fg = "#222533",
+		},
+		CmpItemKindMethod = {
+			bg = "green",
+			fg = "#222533",
+		},
+		CmpItemKindFunction = {
+			bg = "green",
+			fg = "#222533",
+		},
+		CmpItemKindClass = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+		CmpItemKindConstant = {
+			bg = "orange",
+			fg = "#222533",
+		},
+		CmpItemKindEventDefault = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+		CmpItemKindEvent = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+
+		CmpItemKindDefault = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+
+		CmpItemKindValue = {
+			bg = "orange",
+			fg = "#222533",
+		},
+
+		CmpItemKindVariable = {
+			bg = "pink",
+			fg = "#222533",
+		},
+		CmpItemKindInterface = {
+			bg = "orange",
+			fg = "#222533",
+		},
+		CmpItemKindEnum = {
+			bg = "orange",
+			fg = "#222533",
+		},
+
+		CmpItemKindEnumDefault = {
+			bg = "orange",
+			fg = "#222533",
+		},
+
+		CmpItemKindClassDefault = {
+			bg = "orange",
+			fg = "#222533",
+		},
+		CmpItemKindSnippet = {
+			bg = "red",
+			fg = "#222533",
+		},
+		CmpItemKindConstructor = {
+			bg = "blue",
+			fg = "#222533",
+		},
+		CmpItemKindFile = {
+			bg = "white",
+			fg = "#222533",
+		},
+		CmpItemKindColor = {
+			bg = "red",
+			fg = "#222533",
+		},
+		CmpItemKindFolder = {
+			bg = "white",
+			fg = "#222533",
+		},
+		CmpItemKindIdentifier = {
+			bg = "purple",
+			fg = "#222533",
+		},
+		CmpItemKindKeyword = {
+			bg = "white",
+			fg = "#222533",
+		},
+		CmpItemKindModule = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+		CmpItemKindProperty = {
+			bg = "purple",
+			fg = "#222533",
+		},
+		CmpItemKindReference = {
+			bg = "white",
+			fg = "#222533",
+		},
+		CmpItemKindStruct = {
+			bg = "pink",
+			fg = "#222533",
+		},
+		CmpItemKindType = {
+			bg = "cyan",
+			fg = "#222533",
+		},
+		CmpItemKindTypeParameter = {
+			bg = "purple",
+			fg = "#222533",
+		},
+		CmpItemKindOperator = {
+			bg = "white",
+			fg = "#222533",
+		},
+
+		CmpItemKindEnumMember = {
+			bg = "orange",
+			fg = "#222533",
+		},
+		CmpItemKindUnit = {
+			bg = "pink",
+			fg = "#222533",
+		},
+
+		CmpItemMenu = {
+			bg = "none",
+			fg = "#222533",
+		},
+		BufferCurrent = {
+			fg = "red",
+		},
+
+		BufferInactive = {
+			fg = "#222533",
 		},
 	},
 }

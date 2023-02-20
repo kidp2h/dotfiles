@@ -28,14 +28,28 @@ opt.updatetime = 100
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- global
-global.airline_powerline_fonts = 1
-global.neovide_cursor_antialiasing = true
-global.neovide_window_floating_opacity = 0.8
-global.neovide_no_idle = true
-global.neovide_cursor_animation_length = 0.13
-global.neovide_cursor_vfx_particle_density = 10.0
-global.neovide_hide_mouse_when_typing = true
-global.neovide_confirm_quit = true
+-- neovide
+if vim.g.neovide then
+	-- Put anything you want to happen only in Neovide here
+	global.airline_powerline_fonts = 1
+	global.neovide_cursor_antialiasing = true
+	global.neovide_window_floating_opacity = 0.8
+	global.neovide_no_idle = true
+	global.neovide_cursor_animation_length = 0.13
+	global.neovide_cursor_vfx_particle_density = 10.0
+	global.neovide_hide_mouse_when_typing = true
+	global.neovide_confirm_quit = true
+
+	global.neovide_cursor_unfocused_outline_width = 0.125
+	global.neovide_cursor_vfx_particle_lifetime = 1.2
+
+	global.neovide_refresh_rate = 120
+	global.neovide_cursor_vfx_particle_curl = 1.0
+	global.neovide_cursor_vfx_particle_density = 7.0
+	global.neovide_cursor_vfx_particle_speed = 10.0
+	global.neovide_cursor_vfx_particle_phase = 1.5
+	global.neovide_cursor_vfx_mode = "railgun"
+end
 
 global.luasnippets_path = vim.fn.stdpath("config") .. "/lua/custom/snippets"
 

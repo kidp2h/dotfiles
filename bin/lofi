@@ -1,4 +1,0 @@
-lofi(){
-  mpv --loop $HOME/Music/lofi.mp3
-}
-lofi &

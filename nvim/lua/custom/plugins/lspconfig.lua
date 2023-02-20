@@ -14,6 +14,7 @@ local servers = {
 	"intelephense",
 	"dockerls",
 	"tsserver",
+	"lua_ls",
 }
 local lspInlays = { "tsserver" }
 capabilities.textDocument.foldingRange = {
