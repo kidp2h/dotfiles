@@ -38,7 +38,7 @@ super + s
 
 # Launch Apps
 super + shift + {f,w,e}
-	{thunar,brave,geany}
+	{thunar,microsoft-edge-stable,neovide}
 
 # Terminal Apps
 ctrl + alt + {v,r,h}

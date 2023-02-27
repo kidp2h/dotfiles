@@ -78,7 +78,7 @@ M.general = {
 }
 
 M.tabufline = {
-	plugin = true,
+	plugin = false,
 
 	n = {
 		-- cycle through buffers

@@ -154,6 +154,8 @@ M.telescope = {
 }
 
 M.bufferline = {
+	mode = "tabs",
+	modified_icon = "●",
 	highlights = {
 		background = {
 			guibg = "NONE",
@@ -259,6 +261,14 @@ M.ui = {
 			X.cursor_position = function()
 				return ""
 			end
+			return X
+		end,
+	},
+	tabufline = {
+		enabled = false,
+		lazyload = false,
+		overriden_modules = function()
+			local X = {}
 			return X
 		end,
 	},

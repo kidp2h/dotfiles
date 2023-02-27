@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]; then
+	echo " Connected"
+else
+	if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]; then
+		echo " Disconnected"
+	fi
+	echo " Connected"
+fi
