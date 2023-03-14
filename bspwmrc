@@ -56,7 +56,7 @@ bspc rule -a Alacritty desktop='^1' follow=on focus=on
 bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
 # 2 > code
-declare -a code=(Neovide nvim neovim nvide neovide Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code)
+declare -a code=(Neovide nvim neovim nvide neovide Geany code-oss Visual-Studio-Code Code VSCode code vscode visual-studio-code jetbrains-webstorm)
 for i in ${code[@]}; do
 	bspc rule -a $i desktop='^2' follow=on focus=on
 done
@@ -134,7 +134,7 @@ bspcomp
 bspdunst
 
 libinput-gestures-setup start
-earlyoom
 dbus-launch fctix5
+discord
 # livewallpaper &
 bspfloat &

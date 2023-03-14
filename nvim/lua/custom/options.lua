@@ -12,7 +12,7 @@ opt.smarttab = true
 opt.fileencoding = "utf-8"
 opt.termguicolors = true
 opt.smartcase = true
-opt.guifont = { "MonoLisa Nerd Font:h13" }
+opt.guifont = { "MonoLisa Nerd Font:h12" }
 opt.foldcolumn = "1"
 opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
@@ -35,20 +35,20 @@ if vim.g.neovide then
 	global.neovide_cursor_antialiasing = true
 	global.neovide_window_floating_opacity = 0.8
 	global.neovide_no_idle = true
-	global.neovide_cursor_animation_length = 0.13
-	global.neovide_cursor_vfx_particle_density = 10.0
-	global.neovide_hide_mouse_when_typing = true
+	global.neovide_cursor_animation_length = 0
+	global.neovide_cursor_vfx_particle_density = 0
+	global.neovide_hide_mouse_when_typing = false
 	global.neovide_confirm_quit = true
 
 	global.neovide_cursor_unfocused_outline_width = 0.125
-	global.neovide_cursor_vfx_particle_lifetime = 1.2
+	-- global.neovide_cursor_vfx_particle_lifetime = 1.2
 
 	global.neovide_refresh_rate = 120
-	global.neovide_cursor_vfx_particle_curl = 1.0
-	global.neovide_cursor_vfx_particle_density = 7.0
-	global.neovide_cursor_vfx_particle_speed = 10.0
-	global.neovide_cursor_vfx_particle_phase = 1.5
-	global.neovide_cursor_vfx_mode = "railgun"
+	-- global.neovide_cursor_vfx_particle_curl = 1.0
+	-- global.neovide_cursor_vfx_particle_density = 7.0
+	-- global.neovide_cursor_vfx_particle_speed = 10.0
+	-- global.neovide_cursor_vfx_particle_phase = 1.5
+	-- global.neovide_cursor_vfx_mode = "railgun"
 end
 
 global.luasnippets_path = vim.fn.stdpath("config") .. "/lua/custom/snippets"

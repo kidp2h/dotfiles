@@ -16,6 +16,7 @@ local colors = {
 	magenta = "#c678dd",
 	blue = "#51afef",
 	red = "#ec5f67",
+	white = "#ffffff",
 }
 
 local conditions = {
@@ -36,6 +37,7 @@ local conditions = {
 local config = {
 	options = {
 		-- Disable sections and component separators
+		icons_enabled = true,
 		component_separators = "",
 		section_separators = "",
 		theme = {
@@ -84,10 +86,32 @@ end
 ins_left({
 	-- mode component
 	function()
-		return ""
+		local modeMap = {
+			["n"] = " normal",
+			["no"] = " n·operator pending",
+			["v"] = " visual",
+			["V"] = " v·line",
+			[""] = " v·block",
+			["s"] = " select",
+			["S"] = " s·line",
+			[""] = " s·block",
+			["i"] = " insert",
+			["R"] = " replace",
+			["Rv"] = " v·replace",
+			["c"] = " command",
+			["cv"] = " vim ex",
+			["ce"] = " ex",
+			["r"] = " prompt",
+			["rm"] = " more",
+			["r?"] = " confirm",
+			["!"] = " shell",
+			["t"] = " terminal",
+		}
+		return " " .. string.upper(modeMap[vim.fn.mode()])
 	end,
 	color = function()
 		-- auto change color according to neovims mode
+		--
 		local mode_color = {
 			n = colors.red,
 			i = colors.green,
@@ -110,36 +134,52 @@ ins_left({
 			["!"] = colors.red,
 			t = colors.red,
 		}
-		return { fg = mode_color[vim.fn.mode()] }
+		return { bg = mode_color[vim.fn.mode()], fg = colors.white, gui = "bold" }
 	end,
 	padding = { right = 1 },
+})
+
+ins_left({
+	function()
+		return ""
+	end,
 })
 
 ins_left({
 	-- filesize component
 	"filesize",
 	cond = conditions.buffer_not_empty,
+	color = { fg = colors.white, bg = colors.fg },
 })
 
 ins_left({
 	"filename",
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = "bold" },
+	color = { fg = colors.white, bg = colors.magenta, gui = "bold" },
 })
 
-ins_left({ "location" })
+ins_left({ "location", color = { fg = colors.white, bg = colors.red } })
 
-ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+ins_left({ "progress", color = { fg = colors.white, bg = colors.yellow, gui = "bold" } })
 
 ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	symbols = { error = " ", warn = " ", info = " " },
 	diagnostics_color = {
-		color_error = { fg = colors.red },
-		color_warn = { fg = colors.yellow },
-		color_info = { fg = colors.cyan },
+		color_error = { bg = colors.red, fg = colors.white },
+		color_warn = { bg = colors.yellow, fg = colors.white },
+		color_info = { bg = colors.cyan, fg = colors.white },
 	},
+	color = {
+		bg = "#ffffff",
+	},
+})
+
+ins_left({
+	function()
+		return "%="
+	end,
 })
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -156,18 +196,23 @@ ins_left({
 		local msg = "No Active Lsp"
 		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 		local clients = vim.lsp.get_active_clients()
+		local mapLspIcon = {
+			tsserver = "ﯤ ",
+			lua_ls = " ",
+			tailwindcss = "󱏿 ",
+		}
 		if next(clients) == nil then
 			return msg
 		end
 		for _, client in ipairs(clients) do
 			local filetypes = client.config.filetypes
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				return client.name
+				return mapLspIcon[client.name] .. client.name
 			end
 		end
 		return msg
 	end,
-	icon = " LSP:",
+	icon = "  LSP:",
 	color = { fg = colors.cyan, gui = "bold" },
 })
 
@@ -175,7 +220,7 @@ ins_right({
 	function()
 		return require("battery").get_status_line()
 	end,
-	color = { fg = colors.violet, bg = colors.bg },
+	color = { bg = colors.violet, fg = colors.white },
 })
 
 -- Add components to right sections
@@ -183,20 +228,20 @@ ins_right({
 	"o:encoding", -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
 	cond = conditions.hide_in_width,
-	color = { fg = colors.green, gui = "bold" },
+	color = { bg = colors.green, fg = colors.white, gui = "bold" },
 })
 
 ins_right({
 	"fileformat",
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.green, gui = "bold" },
+	color = { bg = colors.magenta, fg = colors.white, gui = "bold" },
 })
 
 ins_right({
 	"branch",
 	icon = "",
-	color = { fg = colors.violet, gui = "bold" },
+	color = { bg = colors.blue, fg = colors.white, gui = "bold" },
 })
 
 ins_right({
@@ -209,6 +254,7 @@ ins_right({
 		removed = { fg = colors.red },
 	},
 	cond = conditions.hide_in_width,
+	color = { fg = colors.white, bg = colors.darkblue },
 })
 
 -- Now don't forget to initialize lualine

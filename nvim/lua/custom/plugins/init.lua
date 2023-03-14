@@ -1,5 +1,6 @@
 local overrides = require("custom.plugins.overrides")
 
+
 return {
 
 	----------------------------------------- default plugins ------------------------------------------
@@ -64,6 +65,9 @@ return {
 		end,
 	},
 
+  ['jose-elias-alvarez/typescript.nvim'] = {
+  },
+
 	-- format & linting
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		after = "nvim-lspconfig",
@@ -103,33 +107,33 @@ return {
 	},
 
 	-- autosave
-	["Pocco81/AutoSave.nvim"] = {
-		module = "autosave",
-		config = function()
-			require("autosave").setup()
-		end,
-	},
+	-- ["Pocco81/AutoSave.nvim"] = {
+	-- 	module = "autosave",
+	-- 	config = function()
+	-- 		require("autosave").setup()
+	-- 	end,
+	-- },
 
 	-- notes & todo stuff
-	["nvim-neorg/neorg"] = {
-		tag = "0.0.12",
-		ft = "norg",
-		after = "nvim-treesitter",
-		setup = function()
-			require("custom.plugins.neorg").autocmd()
-		end,
-		config = function()
-			require("custom.plugins.neorg").setup()
-		end,
-	},
+	-- ["nvim-neorg/neorg"] = {
+	-- 	tag = "0.0.12",
+	-- 	ft = "norg",
+	-- 	after = "nvim-treesitter",
+	-- 	setup = function()
+	-- 		require("custom.plugins.neorg").autocmd()
+	-- 	end,
+	-- 	config = function()
+	-- 		require("custom.plugins.neorg").setup()
+	-- 	end,
+	-- },
 
 	-- basic diagrams for flow charts etc
-	["jbyuki/venn.nvim"] = {
-		module = "venn.nvim",
-		config = function()
-			require("custom.plugins.venn").setup()
-		end,
-	},
+	-- ["jbyuki/venn.nvim"] = {
+	-- 	module = "venn.nvim",
+	-- 	config = function()
+	-- 		require("custom.plugins.venn").setup()
+	-- 	end,
+	-- },
 
 	["rmagatti/goto-preview"] = {
 		config = function()
@@ -238,7 +242,7 @@ return {
 	-- 		})
 	-- 	end,
 	-- },
-	["jamestthompson3/nvim-remote-containers"] = {},
+	-- ["jamestthompson3/nvim-remote-containers"] = {},
 	["linty-org/key-menu.nvim"] = {
 		config = function()
 			vim.keymap.set("n", " ", function()
@@ -290,7 +294,7 @@ return {
 			},
 		},
 	},
-	["kdheepak/lazygit.nvim"] = {},
+	-- ["kdheepak/lazygit.nvim"] = {},
 	["akinsho/git-conflict.nvim"] = {
 		config = function()
 			require("git-conflict").setup({
@@ -303,32 +307,32 @@ return {
 			})
 		end,
 	},
-	["anuvyklack/pretty-fold.nvim"] = {
-		config = function()
-			require("pretty-fold").setup({
-				keep_indentation = false,
-				fill_char = "━",
-				sections = {
-					left = {
-						"━ ",
-						function()
-							return string.rep("*", vim.v.foldlevel)
-						end,
-						" ━┫",
-						"content",
-						"┣",
-					},
-					right = {
-						"┫ ",
-						"number_of_folded_lines",
-						": ",
-						"percentage",
-						" ┣━━",
-					},
-				},
-			})
-		end,
-	},
+	-- ["anuvyklack/pretty-fold.nvim"] = {
+	-- 	config = function()
+	-- 		require("pretty-fold").setup({
+	-- 			keep_indentation = false,
+	-- 			fill_char = "━",
+	-- 			sections = {
+	-- 				left = {
+	-- 					"━ ",
+	-- 					function()
+	-- 						return string.rep("*", vim.v.foldlevel)
+	-- 					end,
+	-- 					" ━┫",
+	-- 					"content",
+	-- 					"┣",
+	-- 				},
+	-- 				right = {
+	-- 					"┫ ",
+	-- 					"number_of_folded_lines",
+	-- 					": ",
+	-- 					"percentage",
+	-- 					" ┣━━",
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	["preservim/tagbar"] = {},
 	["ray-x/lsp_signature.nvim"] = {},
 	["m-demare/hlargs.nvim"] = {
@@ -366,7 +370,7 @@ return {
 		end,
 		commit = "707c9399b1cbe063c6942604209674edf1b3cf2e",
 	},
-	["folke/tokyonight.nvim"] = {},
+	-- ["folke/tokyonight.nvim"] = {},
 	["melkster/modicator.nvim"] = {
 		config = function()
 			require("custom.plugins.modicator")
@@ -379,22 +383,22 @@ return {
 	},
 	["rafamadriz/friendly-snippets"] = {},
 	["f-person/git-blame.nvim"] = {},
-	["folke/noice.nvim"] = {
-		config = function()
-			require("custom.plugins.noice")
-		end,
-	},
+	-- ["folke/noice.nvim"] = {
+	-- 	config = function()
+	-- 		require("custom.plugins.noice")
+	-- 	end,
+	-- },
 	["https://gitlab.com/yorickpeterse/nvim-window"] = {
 		config = function()
 			require("custom.plugins.nvim-window")
 		end,
 	},
-	["kevinhwang91/nvim-ufo"] = {
-		requires = "kevinhwang91/promise-async",
-		config = function()
-			require("custom.plugins.ufo")
-		end,
-	},
+	-- ["kevinhwang91/nvim-ufo"] = {
+	-- 	requires = "kevinhwang91/promise-async",
+	-- 	config = function()
+	-- 		require("custom.plugins.ufo")
+	-- 	end,
+	-- },
 	["kevinhwang91/rnvimr"] = {
 		cmd = "RnvimrToggle",
 		config = function()

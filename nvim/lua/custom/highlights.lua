@@ -41,7 +41,7 @@ local M = {
 
 		NeoTreeTabActive = {
 
-			bg = "none",
+			bg = "red",
 			fg = "white",
 		},
 		NeoTreeTabInactive = {

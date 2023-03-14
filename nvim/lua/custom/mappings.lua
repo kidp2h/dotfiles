@@ -117,12 +117,8 @@ M.SaveFile = {
 
 M.NvimTree = {
 	n = {
-		["<C-b>"] = { "<cmd>Neotree float reveal toggle <CR>", "toggle nvimtree" },
-		["<leader>e"] = { "<cmd>Neotree float reveal toggle <CR>", "toggle nvimtree" },
-	},
-
-	i = {
-		["<C-b>"] = { "<cmd>Neotree float reveal toggle <CR>", "toggle nvimtree" },
+		["<C-b>"] = { "<cmd>Neotree toggle <CR>", "toggle nvimtree" },
+		["<leader>e"] = { "<cmd>Neotree toggle <CR>", "toggle nvimtree" },
 	},
 }
 
@@ -203,14 +199,14 @@ M.lspconfig = {
 		},
 
 		["K"] = {
-			"<cmd>Lspsaga hover_doc<CR>",
+			"<cmd>Lspsaga hover_doc ++keep<CR>",
 			"lspsaga hover doc",
 			opts = {
 				silent = true,
 			},
 		},
 		["<leader>f"] = {
-			"<cmd>Lspsaga show_cursor_diagnostics<CR>",
+			"<cmd>Lspsaga show_line_diagnostics<CR>",
 			"Lspsaga show diagnostic",
 			opts = {
 				silent = true,

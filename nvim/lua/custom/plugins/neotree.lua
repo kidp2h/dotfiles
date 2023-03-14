@@ -18,10 +18,10 @@ neo_tree.setup({
 		separator = "",
 		content_layout = "center",
 		tab_labels = {
-			filesystem = "📁  DIR  ",
-			buffers = "📒  BUF  ",
-			git_status = "🚀 GIT  ",
-			diagnostics = "🔥 LSP  ",
+			filesystem = "  DIR  ",
+			buffers = "﬘  BUF  ",
+			git_status = "  GIT  ",
+			diagnostics = "  LSP  ",
 		},
 	},
 	default_component_configs = {
