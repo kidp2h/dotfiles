@@ -15,7 +15,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME="archcraft"
@@ -77,7 +77,7 @@ zstyle ':omz:update' mode enable  # disable automatic updates
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search history ls zsh-interactive-cd )
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search history ls zsh-interactive-cd docker docker-compose fzf )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,6 +135,7 @@ alias la='ls -A'
 alias lm='ls -m'
 alias lr='ls -R'
 alias lg='ls -l --group-directories-first'
+alias neovide='neovide --novsync --frame none'
 
 # git
 alias gcl='git clone --depth 1'
@@ -142,10 +143,15 @@ alias gi='git init'
 alias ga='git add'
 alias gc='git commit -m'
 alias gp='git push origin master'
-alias b8u='cd ~/Documents/box-universe/; neovide --frame transparent'
-alias prodb8u='cd ~/Documents/box-universe/docker/; sh production.sh'
-alias devb8u='cd ~/Documents/box-universe/docker/; sh development.sh'
-alias _b8u='cd ~/Documents/box-universe'
+alias b8u='cd ~/Projects/box-universe/; neovide'
+alias prodb8u='cd ~/Projects/box-universe/docker/; sh deploy.sh production'
+alias devb8u='cd ~/Projects/box-universe/docker/; sh deploy.sh development'
+alias stopb8u='cd ~/Projects/box-universe/docker/; sh deploy.sh stop'
+
+alias _b8u='cd ~/Projects/box-universe'
+alias mas='cd ~/Projects/MAS; neovide --multigrid'
+alias _mas='cd ~/Projects/MAS'
+
 alias nvimrc='cd ~/.config/bspwm/nvim/; neovide'
 alias dotfiles='cd ~/.config/bspwm/; neovide'
 alias zshrc='neovide ~/.zshrc'
@@ -158,6 +164,10 @@ alias internalkb='sh $HOME/.config/bspwm/bin/internalKB'
 alias externalM='sh $HOME/.config/bspwm/bin/externalM'
 alias internalM='sh $HOME/.config/bspwm/bin/internalM'
 alias alacritty='alacritty --config-file ~/.config/bspwm/alacritty/alacritty.yml'
+alias emulator="cd ~/Downloads/microemulator-2.0.4; java -jar microemulator.jar &"
+alias UPDATE_NVIM_DOTFILES="cp -R ~/.config/nvim ~/.config/bspwm/"
+alias kubectl="minikube kubectl --"
+alias ls='colorls'
 # export GTK_IM_MODULE=ibus
 # export XMODIFIERS=@im=ibus
 # export QT_IM_MODULE=ibus
@@ -171,15 +181,23 @@ export DENO_INSTALL="/home/kidp2h/.deno"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:/home/kidp2h/.spicetify
-export KEYBOARD="AT Translated Set 2 keyboard"
-export TOUCHPAD="ELAN0712:00 04F3:30FD Touchpad"
+export KEYBOARD="ITE Tech. Inc. ITE Device(8176) Keyboard"
+export TOUCHPAD="MSFT0002:00 04F3:31AD Touchpad"
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export OPENAI_API_KEY=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
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
 export PATH=$PATH:$HOME/go/bin
-
+export PATH=$PATH:$(ruby -e 'puts File.join(Gem.user_dir, "bin")')
+export ZPLUG_HOME=~/.zplug
+source ~/.zplug/init.zsh 
+zplug "b4b4r07/enhancd", use:init.sh
 export VIDEO=$HOME/Videos/wp/1.mp4
-source /usr/share/zsh/scripts/zplug/init.zsh
 eval $(thefuck --alias)
 export ENHANCD_FILTER=peco
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+source $(dirname $(gem which colorls))/tab_complete.sh
+eval "$(starship init zsh)"
+
+[ -f "/home/kidp2h/.ghcup/env" ] && source "/home/kidp2h/.ghcup/env" # ghcup-env
