@@ -1,0 +1,75 @@
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false 
+format = """
+[╭─user────❯](bold blue) $hostname
+[┣─local───❯](bold yellow) $localip
+[┣─project─❯](bold red) $directory$package$docker_context$nodejs
+[┣─git─────❯](bold purple) $git_branch
+[┣─time────❯](bold white) $time
+[╰─cmd─────❯](bold green) 
+"""
+# right_format = """$all"""
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+[lua]
+format = "via [🌙 $version](bold blue) "
+[localip]
+ssh_only = false
+format = "[](bold yellow)  [$localipv4](bold red) "
+disabled = false 
+[hostname]
+ssh_only = false
+format = "[🌏](bold purple) [$hostname](bold dimmed purple)"
+disabled = false
+[time]
+disabled = false
+format = '🕙 [\[ $time \]]($style) '
+time_format = "%a, %d %b %Y %R %p"
+utc_time_offset = "+7"
+[git_branch]
+symbol = " "
+format ="[[$symbol](bold purple)$branch$git_status$git_commit(:$remote_branch)](bold green) "
+truncation_length = 99999
+truncation_symbol = ""
+[sudo]
+style = "bold green"
+symbol = "👩‍ 💻 "
+disabled = true 
+[status]
+style = "bg:none"
+symbol = "🔴 "
+success_symbol = "✔️"
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[memory_usage]
+disabled = false 
+threshold = -1
+symbol = ""
+format =  '[$symbol](bold white) [${ram}]($style) '
+style = "bold dimmed green"
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = false 
+format = "via [🎁 $version](208 bold) "
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️ 💨 ×${count}"
+behind = "🐢 ×${count}"
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+untracked = "🛤️  ×${count}"
+stashed = "📦 "
+modified = "📝 ×${count}"
+staged = "🗃️  ×${count}"
+renamed = "📛 ×${count}"
+deleted = "🗑️  ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
