@@ -1,3 +1,4 @@
+- No longer maintain for this dotfiles. New dotfiles version 2: ![dotfiles-v2](https://github.com/kidp2h/dotfiles-v2)
 # SCREENSHOT
 - Overview
 
